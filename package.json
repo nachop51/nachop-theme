@@ -1,0 +1,21 @@
+{
+  "name": "nachop-theme",
+  "displayName": "nachop theme",
+  "description": "My own theme :D",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.82.0"
+  },
+  "categories": [
+    "Themes"
+  ],
+  "contributes": {
+    "themes": [
+      {
+        "label": "Nachanga Theme",
+        "uiTheme": "vs-dark",
+        "path": "./themes/Nachanga Theme-color-theme.json"
+      }
+    ]
+  }
+}
