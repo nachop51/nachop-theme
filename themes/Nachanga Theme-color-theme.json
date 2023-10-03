@@ -58,20 +58,6 @@
       }
     },
     {
-      "name": "HTML Tags",
-      "scope": [
-        "meta.tag",
-        "punctuation.definition.tag",
-        "punctuation.definition.tag.html",
-        "punctuation.definition.tag.begin.html",
-        "punctuation.definition.tag.end.html",
-        "punctuation.section.embedded"
-      ],
-      "settings": {
-        "foreground": "#b51d87"
-      }
-    },
-    {
       "name": "Strings, Single and double quotes",
       "scope": ["string.quoted"],
       "settings": {
@@ -134,25 +120,24 @@
     },
     {
       "name": "python function decorator @",
-      "scope": "meta.function.decorator.python",
+      "scope": [
+        "meta.function.decorator.python",
+        "support.token.decorator.python,meta.function.decorator.identifier.python"
+      ],
       "settings": {
-        "foreground": "#61afef"
-      }
-    },
-    {
-      "name": "python function support",
-      "scope": "support.token.decorator.python,meta.function.decorator.identifier.python",
-      "settings": {
-        "foreground": "#56b6c2"
+        "foreground": "#fdef94"
       }
     },
     // ------------------
     {
       "name": "Function parameter | argument",
       "scope": [
-        "function.parameter",
+        "variable.parameter.function.language.python",
+        "variable.parameter.function.python",
+        "variable.parameter.function.js",
         "variable.parameter.fucntion",
-        "variable.parameter"
+        "variable.parameter",
+        "meta.definition.variable.name"
       ],
       "settings": {
         "foreground": "#e5bdff",
@@ -289,80 +274,7 @@
         "foreground": "#82AAFF"
       }
     },
-    {
-      "name": "HTML & JSX Properties/Attributes",
-      "scope": ["entity.other.attribute-name"],
-      "settings": {
-        "foreground": "#FFCB6B"
-      }
-    },
-    {
-      "name": "HTML Attributes",
-      "scope": [
-        "text.html.basic entity.other.attribute-name.html",
-        "text.html.basic entity.other.attribute-name"
-      ],
-      "settings": {
-        "fontStyle": "italic",
-        "foreground": "#FFCB6B"
-      }
-    },
-    {
-      "name": "CSS Classes",
-      "scope": ["entity.other.attribute-name.class"],
-      "settings": {
-        "foreground": "#FFCB6B"
-      }
-    },
-    {
-      "name": "CSS ID's",
-      "scope": ["source.sass keyword.control"],
-      "settings": {
-        "foreground": "#82AAFF"
-      }
-    },
-    {
-      "name": "Inserted",
-      "scope": ["markup.inserted"],
-      "settings": {
-        "foreground": "#C3E88D"
-      }
-    },
-    {
-      "name": "Deleted",
-      "scope": ["markup.deleted"],
-      "settings": {
-        "foreground": "#FF5370"
-      }
-    },
-    {
-      "name": "Changed",
-      "scope": ["markup.changed"],
-      "settings": {
-        "foreground": "#C792EA"
-      }
-    },
-    {
-      "name": "Regular Expressions",
-      "scope": ["string.regexp"],
-      "settings": {
-        "foreground": "#89DDFF"
-      }
-    },
-    {
-      "name": "Escape Characters",
-      "scope": ["constant.character.escape"],
-      "settings": {
-        "foreground": "#89DDFF"
-      }
-    },
-    {
-      "name": "URL",
-      "scope": ["*url*", "*link*", "*uri*"],
-      "settings": {
-        "fontStyle": "underline"
-      }
-    },
+    // JS Stuff
     {
       "name": "Decorators",
       "scope": [
@@ -384,6 +296,112 @@
         "foreground": "#FF5370"
       }
     },
+    // HTML Related
+    {
+      "name": "HTML Tags",
+      "scope": [
+        "punctuation.definition.tag",
+        "punctuation.definition.tag.html",
+        "punctuation.definition.tag.begin.html",
+        "punctuation.definition.tag.end.html",
+        "punctuation.section.embedded"
+      ],
+      "settings": {
+        "foreground": "#b51d87"
+      }
+    },
+    {
+      "name": "HTML Tag HTML inside",
+      "scope": [
+        "meta.tag",
+        "text.html.basic",
+        "text.html.basic source",
+        "text.html.basic source.html",
+        "text.html.basic source.html entity.other.attribute-name",
+        "text.html.basic source.html entity.other.attribute-name.html",
+        "text.html.basic source.html entity.other.attribute-value",
+        "text.html.basic source.html punctuation.definition.string",
+        "text.html.basic source.html string.quoted.double",
+        "text.html.basic source.html string.quoted.single",
+        "text.html.basic source.html string.unquoted"
+      ],
+      "settings": {
+        "foreground": "#dccfeb"
+      }
+    },
+    {
+      "name": "HTML & JSX Properties/Attributes",
+      "scope": [
+        "entity.other.attribute-name",
+        "text.html.basic entity.other.attribute-name.html",
+        "text.html.basic entity.other.attribute-name"
+      ],
+      "settings": {
+        "foreground": "#FFCB6B",
+        "fontStyle": "italic"
+      }
+    },
+    // --------------------
+    // CSS
+    {
+      "name": "CSS Classes",
+      "scope": ["entity.other.attribute-name.class"],
+      "settings": {
+        "foreground": "#FFCB6B"
+      }
+    },
+    {
+      "name": "CSS ID's",
+      "scope": ["source.sass keyword.control"],
+      "settings": {
+        "foreground": "#82AAFF"
+      }
+    },
+    // --------------------
+    {
+      "name": "Inserted",
+      "scope": ["markup.inserted"],
+      "settings": {
+        "foreground": "#C3E88D"
+      }
+    },
+    {
+      "name": "Deleted",
+      "scope": ["markup.deleted"],
+      "settings": {
+        "foreground": "#FF5370"
+      }
+    },
+    {
+      "name": "Changed",
+      "scope": ["markup.changed"],
+      "settings": {
+        "foreground": "#C792EA"
+      }
+    },
+    // RegExp & Escape Chars, URLS
+    {
+      "name": "Regular Expressions",
+      "scope": ["string.regexp"],
+      "settings": {
+        "foreground": "#89DDFF"
+      }
+    },
+    {
+      "name": "Escape Characters",
+      "scope": ["constant.character.escape"],
+      "settings": {
+        "foreground": "#89DDFF"
+      }
+    },
+    {
+      "name": "URL",
+      "scope": ["*url*", "*link*", "*uri*"],
+      "settings": {
+        "fontStyle": "underline"
+      }
+    },
+    // JSON
     {
       "name": "JSON Key - Level 0",
       "scope": [
@@ -465,6 +483,8 @@
         "foreground": "#C3E88D"
       }
     },
+    // ----------------------
+    // Markdown
     {
       "name": "Markdown - Plain",
       "scope": [
@@ -630,10 +650,11 @@
         "foreground": "#EEFFFF"
       }
     }
+    // ----------------------
   ],
   "colors": {
     "editor.background": "#242936",
-    "editor.foreground": "#ee6584",
+    "editor.foreground": "#dccfeb",
     "editorIndentGuide.background1": "#323843",
     "activityBarBadge.background": "#e2bb6e",
     "activityBar.background": "#1f2430",
