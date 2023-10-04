@@ -3,7 +3,7 @@
   "publisher": "nachop51",
   "displayName": "nachop theme",
   "description": "My own theme :D",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "repository": {
     "type": "git",
     "url": "https://github.com/Nachop51/nachop-theme.git"
@@ -19,7 +19,12 @@
       {
         "label": "Nachanga Theme",
         "uiTheme": "vs-dark",
-        "path": "./themes/Nachanga Theme-color-theme.json"
+        "path": "./themes/nachanga.json"
+      },
+      {
+        "label": "Nachanga borderless Theme",
+        "uiTheme": "vs-dark",
+        "path": "./themes/nachanga-borderless.json"
       }
     ]
   }
