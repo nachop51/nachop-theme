@@ -48,7 +48,7 @@
       }
     },
     {
-      "name": "Invalid", // I don't know what this is for
+      "name": "Invalid",
       "scope": ["invalid"],
       "settings": {
         "foreground": "#ff6666"
@@ -189,7 +189,7 @@
         "variable.parameter.function.language.python",
         "variable.parameter.function.python",
         "variable.parameter.function.js",
-        "variable.parameter.fucntion",
+        "variable.parameter.function",
         "variable.parameter",
         "meta.definition.variable.name",
         "meta.parameter"
@@ -232,10 +232,10 @@
       }
     },
     {
-      "name": "Lambda arrow",
+      "name": "Function and & Lambda arrow",
       "scope": ["storage.type.function"],
       "settings": {
-        "foreground": "#e5bdff"
+        "foreground": "#C792EA"
       }
     },
     {

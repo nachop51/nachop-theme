@@ -2,8 +2,8 @@
   "name": "nachop-theme",
   "publisher": "nachop51",
   "displayName": "nachop theme",
-  "description": "My own theme :D",
-  "version": "0.2.0",
+  "description": "Mix of the best VSCode themes",
+  "version": "0.2.5",
   "repository": {
     "type": "git",
     "url": "https://github.com/Nachop51/nachop-theme.git"
