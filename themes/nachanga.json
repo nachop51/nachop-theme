@@ -79,7 +79,7 @@
       "name": "String",
       "scope": ["string", "constant.other.symbol"],
       "settings": {
-        "foreground": "#d3fd94"
+        "foreground": "#cae790"
       }
     },
     {
