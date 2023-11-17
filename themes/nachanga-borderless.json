@@ -105,7 +105,8 @@
       "name": "Function name",
       "scope": ["entity.name.function"],
       "settings": {
-        "foreground": "#79b9ee"
+        "foreground": "#79b9ee",
+        "fontStyle": "bold"
       }
     },
     {
@@ -124,7 +125,8 @@
       "name": "Library function",
       "scope": ["support.function", "support.macro"],
       "settings": {
-        "foreground": "#9bd1ff"
+        "foreground": "#9bd1ff",
+        "fontStyle": "bold"
       }
     },
     {

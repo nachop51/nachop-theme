@@ -105,14 +105,16 @@
       "name": "Function name",
       "scope": ["entity.name.function"],
       "settings": {
-        "foreground": "#79b9ee"
+        "foreground": "#79b9ee",
+        "fontStyle": "bold"
       }
     },
     {
       "name": "Library function (fetch in js, etc)",
       "scope": ["support.function", "support.macro"],
       "settings": {
-        "foreground": "#9bd1ff"
+        "foreground": "#9bd1ff",
+        "fontStyle": "bold"
       }
     },
     {
@@ -376,7 +378,7 @@
       "name": "HTML & JSX Properties/Attributes",
       "scope": ["entity.other.attribute-name"],
       "settings": {
-        "foreground": "#FFCB6B",
+        "foreground": "#dc9e65",
         "fontStyle": "italic"
       }
     },
