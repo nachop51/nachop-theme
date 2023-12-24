@@ -56,7 +56,7 @@
     },
     {
       "name": "Import, Export, Return, etc",
-      "scope": ["keyword.control", "keyword.other"],
+      "scope": ["keyword", "keyword.control", "keyword.other"],
       "settings": {
         "foreground": "#ad72f3"
       }
@@ -70,7 +70,7 @@
     },
     {
       "name": "Operators",
-      "scope": ["keyword.operator"],
+      "scope": ["keyword.operator", "keyword.operator.assignment.go"],
       "settings": {
         "foreground": "#ad72f3"
       }
@@ -103,7 +103,7 @@
     },
     {
       "name": "Function name",
-      "scope": ["entity.name.function"],
+      "scope": ["entity.name.function", "support.function.go"],
       "settings": {
         "foreground": "#79b9ee",
         "fontStyle": "bold"
@@ -130,8 +130,7 @@
       "scope": [
         "variable.function",
         "variable.annotation",
-        "meta.function-call.generic",
-        "support.function.go"
+        "meta.function-call.generic"
       ],
       "settings": {
         "foreground": "#ffd173"
@@ -152,7 +151,6 @@
         "foreground": "#d5ff80"
       }
     },
-
     {
       "name": "diff.header",
       "scope": ["meta.diff", "meta.diff.header"],
@@ -266,6 +264,30 @@
       ],
       "settings": {
         "foreground": "#b7e276"
+      }
+    },
+    {
+      "name": "go operator",
+      "scope": [
+        "keyword.operator.arithmetic.go",
+        "keyword.operator.address.go"
+      ],
+      "settings": {
+        "foreground": "#c678dd"
+      }
+    },
+    {
+      "name": "Go package name",
+      "scope": ["entity.name.package.go"],
+      "settings": {
+        "foreground": "#ffd173"
+      }
+    },
+    {
+      "name": "Go stuff",
+      "scope": "source.go storage.type",
+      "settings": {
+        "foreground": "#f5dd87"
       }
     },
     {
@@ -425,6 +447,21 @@
         "foreground": "#b8cfe680"
       }
     },
+    // RegExp & Escape Chars, URLS
+    {
+      "name": "Regular Expressions and Escape chars",
+      "scope": ["string.regexp", "constant.character", "constant.other"],
+      "settings": {
+        "foreground": "#95e6cb"
+      }
+    },
+    {
+      "name": "URL",
+      "scope": ["*url*", "*link*", "*uri*"],
+      "settings": {
+        "fontStyle": "underline"
+      }
+    },
     // --------------------
     {
       "name": "Inserted",
@@ -445,21 +482,6 @@
       "scope": ["markup.changed"],
       "settings": {
         "foreground": "#ad72f3"
-      }
-    },
-    // RegExp & Escape Chars, URLS
-    {
-      "name": "Regular Expressions and Escape chars",
-      "scope": ["string.regexp", "constant.character", "constant.other"],
-      "settings": {
-        "foreground": "#95e6cb"
-      }
-    },
-    {
-      "name": "URL",
-      "scope": ["*url*", "*link*", "*uri*"],
-      "settings": {
-        "fontStyle": "underline"
       }
     },
     // JSON
