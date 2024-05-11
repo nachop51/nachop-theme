@@ -1,13 +1,18 @@
 {
   "name": "nachop-theme",
-  "publisher": "nachop51",
-  "displayName": "nachop theme",
+  "displayName": "Nachop theme",
   "description": "Mix of the best VSCode themes",
+  "version": "0.4.0",
+  "publisher": "nachop51",
+  "license": "MIT",
   "icon": "images/icon.png",
-  "version": "0.3.8",
   "repository": {
     "type": "git",
     "url": "https://github.com/Nachop51/nachop-theme.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Nachop51/nachop-theme/issues",
+    "email": "nachoperalta0@gmail.com"
   },
   "engines": {
     "vscode": "^1.82.0"
@@ -15,18 +20,48 @@
   "categories": [
     "Themes"
   ],
+  "keywords": [
+    "theme",
+    "dark",
+    "light",
+    "color",
+    "syntax",
+    "highlighting",
+    "nachop"
+  ],
+  "homepage": "https://github.com/Nachop51/nachop-theme",
   "contributes": {
     "themes": [
       {
-        "label": "Nachanga Theme",
+        "label": "Nachop Theme",
         "uiTheme": "vs-dark",
-        "path": "./themes/nachanga.json"
+        "path": "./themes/nachop.json"
       },
       {
-        "label": "Nachanga borderless Theme",
+        "label": "Nachop borderless Theme",
         "uiTheme": "vs-dark",
-        "path": "./themes/nachanga-borderless.json"
+        "path": "./themes/nachop-borderless.json"
       }
     ]
+  },
+  "type": "module",
+  "scripts": {
+    "lint": "eslint . --ext .json",
+    "prepublish": "npm run lint",
+    "build": "node ./src/build.js",
+    "package": "vsce package",
+    "publish": "vsce publish"
+  },
+  "devDependencies": {
+    "@vscode/vsce": "^2.26.1",
+    "chroma-js": "^2.4.2",
+    "eslint": "^8.57.0",
+    "eslint-config-standard": "^17.1.0"
+  },
+  "eslintConfig": {
+    "extends": "standard",
+    "rules": {
+      "no-console": "off"
+    }
   }
 }
