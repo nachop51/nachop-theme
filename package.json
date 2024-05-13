@@ -41,6 +41,16 @@
         "label": "Nachop borderless Theme",
         "uiTheme": "vs-dark",
         "path": "./themes/nachop-borderless.json"
+      },
+      {
+        "label": "Nachop dark theme",
+        "uiTheme": "vs-dark",
+        "path": "./themes/nachops-dark.json"
+      },
+      {
+        "label": "Nachop dark bordered Theme",
+        "uiTheme": "vs-dark",
+        "path": "./themes/nachops-dark-bordered.json"
       }
     ]
   },
@@ -48,20 +58,24 @@
   "scripts": {
     "lint": "eslint . --ext .json",
     "prepublish": "npm run lint",
-    "build": "node ./src/build.js",
+    "build": "bun ./src/build.ts",
     "package": "vsce package",
     "publish": "vsce publish"
   },
   "devDependencies": {
+    "@types/chroma-js": "^2.4.4",
+    "@types/node": "^20.12.11",
+    "@typescript-eslint/eslint-plugin": "^6.4.0",
+    "@typescript-eslint/parser": "^6.0.0",
     "@vscode/vsce": "^2.26.1",
     "chroma-js": "^2.4.2",
     "eslint": "^8.57.0",
-    "eslint-config-standard": "^17.1.0"
-  },
-  "eslintConfig": {
-    "extends": "standard",
-    "rules": {
-      "no-console": "off"
-    }
+    "eslint-config-standard": "^17.1.0",
+    "eslint-config-standard-with-typescript": "^43.0.1",
+    "eslint-plugin-import": "^2.29.1",
+    "eslint-plugin-n": "^16.6.2",
+    "eslint-plugin-promise": "^6.1.1",
+    "ts-node-dev": "^2.0.0",
+    "typescript": "^5.4.3"
   }
 }

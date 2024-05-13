@@ -62,7 +62,7 @@
       }
     },
     {
-      "name": "Assigment Operator, others",
+      "name": "Assignment Operator, others",
       "scope": ["storage.type", "storage.modifier"],
       "settings": {
         "foreground": "#ad72f3"

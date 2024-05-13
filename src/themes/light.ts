@@ -28,7 +28,7 @@ const vcs = {
 
 const syntax = {
   tag: color(colors.TAG),
-  func: color(colors.FUNC),
+  func: color(colors.FUNC.NAME),
   entity: color(colors.ACCENT),
   string: color(colors.STRING),
   regexp: color(colors.SUCCESS),
@@ -80,11 +80,11 @@ const common = {
   accent: color(colors.ACCENT),
   error: color(colors.ERROR)
 }
-
 export default {
-  syntax,
+  colors,
   vcs,
+  syntax,
+  editor,
   ui,
-  common,
-  editor
+  common
 }
