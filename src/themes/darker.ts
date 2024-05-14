@@ -2,17 +2,17 @@ import color from 'chroma-js'
 
 const colors = {
   editor: {
-    bg: '#242936',
+    bg: '#10111b',
     fg: '#dcdfeb'
   },
   ui: {
-    bg: '#1f2430',
+    bg: '#0d0e16',
     fg: '#707a8c'
   },
-  cursor: '#dc52ff',
   gutter: '#495162',
+  cursor: '#dc52ff',
 
-  border: '#171b24',
+  border: '#1e232b',
   primary: '#aeaaff',
   accent: '#695380',
 
@@ -27,7 +27,7 @@ const colors = {
   string: '#cae790',
   func: {
     name: '#79b9ee',
-    param: '#c3a6ff',
+    param: '#d2a6ff',
     lambda: '#ad72f3',
     call: '#ffd173'
   },
@@ -70,8 +70,8 @@ const syntax = {
   constant: color(colors.const),
   operator: color(colors.info),
   variables: color(colors.variables),
-  numeric: color(colors.numeric),
   punctuation: color(colors.punctuation),
+  numeric: color(colors.numeric),
   class: color(colors.class),
   macros: color(colors.macros),
   misc: color(colors.accent)

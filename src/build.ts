@@ -1,12 +1,13 @@
 import fs from 'node:fs'
 import path from 'node:path'
+import { cwd } from 'node:process'
 import template from './template.js'
 import { type Schemas } from './nachop.js'
 
-const schemas: Schemas[] = ['dark']
+const schemas: Schemas[] = ['dark', 'darker']
 
 const filePath = (schema: Schemas, isBordered: boolean) => {
-  return path.join(process.cwd(), 'themes', `nachops-${schema}${isBordered ? '-bordered' : ''}.json`)
+  return path.join(cwd(), 'themes', `nachop-${schema}${isBordered ? '-bordered' : ''}.json`)
 }
 
 schemas.forEach((schema: Schemas) => {

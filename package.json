@@ -33,24 +33,34 @@
   "contributes": {
     "themes": [
       {
-        "label": "Nachop Theme",
+        "label": "Nachop old",
         "uiTheme": "vs-dark",
-        "path": "./themes/nachop.json"
+        "path": "./themes/nachop-old.json"
       },
       {
-        "label": "Nachop borderless Theme",
+        "label": "Nachop old bordered",
         "uiTheme": "vs-dark",
-        "path": "./themes/nachop-borderless.json"
+        "path": "./themes/nachop-old-bordered.json"
       },
       {
-        "label": "Nachop dark theme",
+        "label": "Nachop dark",
         "uiTheme": "vs-dark",
-        "path": "./themes/nachops-dark.json"
+        "path": "./themes/nachop-dark.json"
       },
       {
-        "label": "Nachop dark bordered Theme",
+        "label": "Nachop dark bordered",
         "uiTheme": "vs-dark",
-        "path": "./themes/nachops-dark-bordered.json"
+        "path": "./themes/nachop-dark-bordered.json"
+      },
+      {
+        "label": "Nachop darker",
+        "uiTheme": "vs-dark",
+        "path": "./themes/nachop-darker.json"
+      },
+      {
+        "label": "Nachop darker bordered",
+        "uiTheme": "vs-dark",
+        "path": "./themes/nachop-darker-bordered.json"
       }
     ]
   },
