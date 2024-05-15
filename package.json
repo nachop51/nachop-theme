@@ -61,6 +61,16 @@
         "label": "Nachop darker bordered",
         "uiTheme": "vs-dark",
         "path": "./themes/nachop-darker-bordered.json"
+      },
+      {
+        "label": "Piggy",
+        "uiTheme": "vs-dark",
+        "path": "./themes/nachop-piggy.json"
+      },
+      {
+        "label": "Piggy bordered",
+        "uiTheme": "vs-dark",
+        "path": "./themes/nachop-piggy-bordered.json"
       }
     ]
   },

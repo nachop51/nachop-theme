@@ -27,7 +27,7 @@ const colors = {
   string: '#cae790',
   func: {
     name: '#79b9ee',
-    param: '#d2a6ff',
+    param: '#cba7f0',
     lambda: '#ad72f3',
     call: '#ffd173'
   },

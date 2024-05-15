@@ -3,44 +3,44 @@ import color from 'chroma-js'
 const colors = {
   editor: {
     bg: '#242936',
-    fg: '#dcdfeb'
+    fg: '#e9f6ff'
   },
   ui: {
     bg: '#1f2430',
-    fg: '#707a8c'
+    fg: '#57677e'
   },
-  cursor: '#dc52ff',
-  gutter: '#495162',
+  gutter: '#57677e',
+  cursor: '#f8f8f2',
 
-  border: '#171b24',
-  primary: '#aeaaff',
-  accent: '#695380',
+  border: '#243854',
+  primary: '#ffb8fe',
+  accent: '#976e97',
 
-  warn: '#ffd173',
-  success: '#99cc99',
-  info: '#80bfff',
-  error: '#f7575f',
+  warn: '#fff7ab',
+  success: '#b8e986',
+  info: '#abefff',
+  error: '#db7093',
 
-  keywords: '#ad72f3',
-  variables: '#ee6584',
-  tag: '#f07178',
-  string: '#cae790',
+  keywords: '#ffb8fe',
+  variables: '#c597f7',
+  tag: '#ffaacb',
+  string: '#ffe6ab',
   func: {
-    name: '#79b9ee',
-    param: '#e0bdf2',
-    lambda: '#ad72f3',
-    call: '#ffd173'
+    name: '#82aaff',
+    param: '#c792ea',
+    lambda: '#abefff',
+    call: '#ffcb6b'
   },
 
-  const: '#f5dd87',
-  macros: '#f29e74',
-  punctuation: '#9899c5',
+  const: '#b0e3ff',
+  macros: '#ffcb6b',
+  punctuation: '#89ddff',
   comment: '#546E7A',
-  class: '#FFCB6B',
-  numeric: '#F78C6C',
-  regexp: '#95e6cb',
+  class: '#ffaacb',
+  numeric: '#f78c6c',
+  regexp: '#f07178',
 
-  shadow: '#00000050'
+  shadow: '#50494540'
 }
 
 const git = {
@@ -70,8 +70,8 @@ const syntax = {
   constant: color(colors.const),
   operator: color(colors.info),
   variables: color(colors.variables),
-  numeric: color(colors.numeric),
   punctuation: color(colors.punctuation),
+  numeric: color(colors.numeric),
   class: color(colors.class),
   macros: color(colors.macros),
   misc: color(colors.accent)
