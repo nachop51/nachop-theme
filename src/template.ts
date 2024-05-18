@@ -16,7 +16,7 @@ export default function template (schema: Schemas, isBordered: boolean) {
         foreground: scheme.syntax.constant.brighten(0.4).hex()
       },
       macro: {
-        foreground: scheme.syntax.constant.brighten(0.4).hex()
+        foreground: scheme.syntax.macros.hex()
       }
     },
     colors: {
@@ -47,7 +47,7 @@ export default function template (schema: Schemas, isBordered: boolean) {
       'editorBracketMatch.background': scheme.editor.gutter.normal.alpha(0.3).hex(),
       'editorBracketMatch.border': scheme.editor.gutter.active.alpha(0.3).hex(),
 
-      'editorCursor.foreground': scheme.ui.cursor.hex(),
+      'editorCursor.foreground': scheme.editor.cursor.hex(),
       'editorIndentGuide.background1': scheme.editor.indentGuide.normal.hex(),
       'editorIndentGuide.activeBackground1': scheme.editor.indentGuide.active.hex(),
       'editorLineNumber.foreground': scheme.editor.gutter.normal.hex(),
@@ -71,7 +71,7 @@ export default function template (schema: Schemas, isBordered: boolean) {
       'editorOverviewRuler.border': scheme.ui.border.hex(),
       'editorOverviewRuler.modifiedForeground': scheme.git.modified.hex(),
       'editorOverviewRuler.addedForeground': scheme.git.added.hex(),
-      'editorOverviewRuler.deletedForeground': scheme.git.removed.hex(),
+      'editorOverviewRuler.deletedForeground': scheme.git.deleted.hex(),
       'editorOverviewRuler.errorForeground': scheme.common.error.hex(),
       'editorOverviewRuler.warningForeground': scheme.common.accent.hex(),
       'editorOverviewRuler.bracketMatchForeground': scheme.editor.gutter.normal.alpha(0.7).hex(),
@@ -120,17 +120,21 @@ export default function template (schema: Schemas, isBordered: boolean) {
       'editorBracketHighlight.foreground3': scheme.common.brackets3.hex(),
 
       // List of files and tree
-      'list.activeSelectionBackground': scheme.common.accent.hex(),
+      'list.activeSelectionBackground': scheme.ui.selection.active.hex(),
       'list.activeSelectionForeground': scheme.editor.fg.hex(),
+
       'list.focusBackground': scheme.ui.selection.active.hex(),
       'list.focusForeground': scheme.editor.fg.hex(),
       'list.focusOutline': scheme.ui.selection.active.hex(),
+
       'list.highlightForeground': scheme.common.accent.brighten(2).hex(),
       'list.deemphasizedForeground': scheme.common.error.hex(),
-      'list.hoverBackground': scheme.ui.selection.active.hex(),
-      'list.hoverForeground': scheme.editor.fg.hex(),
+      'list.hoverBackground': scheme.ui.selection.hover.hex(),
+      'list.hoverForeground': scheme.ui.fg.hex(),
+
       'list.inactiveSelectionBackground': scheme.common.accent.darken(0.4).hex(),
-      'list.inactiveSelectionForeground': scheme.ui.fg.hex(),
+      'list.inactiveSelectionForeground': scheme.editor.fg.hex(),
+
       'list.invalidItemForeground': scheme.common.error.brighten(0.5).hex(),
       'list.errorForeground': scheme.common.error.brighten(0.5).hex(),
       'list.warningForeground': scheme.common.warn.hex(),
@@ -205,7 +209,7 @@ export default function template (schema: Schemas, isBordered: boolean) {
 
       // DIFF EDITOR
       'diffEditor.insertedTextBackground': scheme.git.added.alpha(0.12).hex(),
-      'diffEditor.removedTextBackground': scheme.git.removed.alpha(0.12).hex(),
+      'diffEditor.removedTextBackground': scheme.git.deleted.alpha(0.12).hex(),
       'diffEditor.diagonalFill': scheme.ui.border.hex(),
 
       // Welcome Page
@@ -634,18 +638,17 @@ export default function template (schema: Schemas, isBordered: boolean) {
           'support.other.namespace.use.php',
           'meta.use.php',
           'support.other.namespace.php',
-          'markup.changed.git_gutter',
           'support.type.sys-types'
         ],
         settings: {
-          foreground: scheme.syntax.class.hex()
+          foreground: scheme.syntax.class.name.hex()
         }
       },
       {
         name: 'Entity Types',
         scope: ['support.type'],
         settings: {
-          foreground: scheme.syntax.class.hex()
+          foreground: scheme.syntax.class.name.hex()
         }
       },
       {
@@ -735,38 +738,73 @@ export default function template (schema: Schemas, isBordered: boolean) {
         name: 'HTML & JSX Properties/Attributes',
         scope: ['entity.other.attribute-name'],
         settings: {
-          foreground: '#dc9e65',
+          foreground: '#dc9e65', // Could be scheme.syntax.class darkened
           fontStyle: 'italic'
         }
       },
       // CSS
       {
-        name: 'CSS Class and Support',
+        name: 'CSS Properties',
         scope: [
           'source.css support.type.property-name',
           'source.sass support.type.property-name',
           'source.scss support.type.property-name',
           'source.less support.type.property-name',
           'source.stylus support.type.property-name',
-          'source.postcss support.type.property-name'
+          'source.postcss support.type.property-name',
+          'support.type.property-name.css'
         ],
         settings: {
-          foreground: scheme.syntax.func.name.brighten(0.75).hex(),
-          fontStyle: 'italic'
+          foreground: scheme.syntax.langs?.css?.properties.hex() ?? scheme.syntax.func.name.brighten(0.75).hex()
         }
       },
       {
         name: 'CSS Classes',
         scope: ['entity.other.attribute-name.class'],
         settings: {
-          foreground: scheme.syntax.class.hex()
+          foreground: scheme.syntax.langs?.css?.class.hex() ?? scheme.syntax.class.name.hex()
         }
       },
       {
-        name: "CSS ID's",
-        scope: ['source.sass keyword.control'],
+        name: 'CSS ID Selector',
+        scope: 'entity.other.attribute-name.id',
         settings: {
-          foreground: scheme.syntax.func.name.hex()
+          foreground: scheme.syntax.langs?.css?.id.hex() ?? scheme.syntax.func.name.brighten(0.5).hex()
+        }
+      },
+      {
+        name: 'Pseudo CSS',
+        scope: ['entity.other.attribute-name.pseudo-element', 'entity.other.attribute-name.pseudo-class'],
+        settings: {
+          foreground: scheme.syntax.langs?.css?.pseudo.hex() ?? scheme.syntax.constant.hex(),
+          fontStyle: 'italic'
+        }
+      },
+      {
+        name: 'Wildcard(*) selector in Stylesheets',
+        scope: [
+          'entity.name.tag.wildcard.css',
+          'entity.name.tag.wildcard.less',
+          'entity.name.tag.wildcard.scss',
+          'entity.name.tag.wildcard.sass'
+        ],
+        settings: {
+          foreground: scheme.syntax.variables.brighten(0.3).hex()
+        }
+      },
+      {
+        name: 'CSS Units',
+        scope: ['keyword.other.unit.css', 'constant.numeric.css'],
+        settings: {
+          foreground: scheme.syntax.langs?.css?.units.hex() ?? scheme.syntax.numeric.darken(1).hex()
+        }
+      },
+      {
+        name: 'CSS Important Keyword',
+        scope: 'keyword.other.important',
+        settings: {
+          foreground: scheme.syntax.keyword.hex(),
+          fontStyle: 'italic'
         }
       },
       {
@@ -779,7 +817,7 @@ export default function template (schema: Schemas, isBordered: boolean) {
           'source.stylus support.type'
         ],
         settings: {
-          foreground: scheme.ui.fg.darken(1).hex()
+          foreground: scheme.ui.fg.darken(0.6).hex()
         }
       },
       // RegExp & Escape Chars, URLS
@@ -795,28 +833,6 @@ export default function template (schema: Schemas, isBordered: boolean) {
         scope: ['*url*', '*link*', '*uri*'],
         settings: {
           fontStyle: 'underline'
-        }
-      },
-      // --------------------
-      {
-        name: 'Inserted',
-        scope: ['markup.inserted'],
-        settings: {
-          foreground: scheme.git.added.hex()
-        }
-      },
-      {
-        name: 'Deleted',
-        scope: ['markup.deleted'],
-        settings: {
-          foreground: scheme.git.removed.hex()
-        }
-      },
-      {
-        name: 'Changed',
-        scope: ['markup.changed'],
-        settings: {
-          foreground: scheme.syntax.keyword.hex()
         }
       },
       // JSON
@@ -835,7 +851,7 @@ export default function template (schema: Schemas, isBordered: boolean) {
           'source.json meta.structure.dictionary.json meta.structure.dictionary.value.json meta.structure.dictionary.json support.type.property-name.json'
         ],
         settings: {
-          foreground: scheme.syntax.class.hex()
+          foreground: scheme.syntax.class.name.hex()
         }
       },
       {
@@ -849,169 +865,191 @@ export default function template (schema: Schemas, isBordered: boolean) {
       },
       // ----------------------
       // Markdown
+      // {
+      //   name: 'Markdown - Plain',
+      //   scope: [
+      //     'text.html.markdown',
+      //     'punctuation.definition.list_item.markdown'
+      //   ],
+      //   settings: {
+      //     foreground: scheme.editor.fg.brighten(0.4).hex()
+      //   }
+      // },
+      // {
+      //   name: 'Markdown - Markup Raw Inline',
+      //   scope: ['text.html.markdown markup.inline.raw.markdown'],
+      //   settings: {
+      //     foreground: scheme.syntax.keyword.hex()
+      //   }
+      // },
+      // {
+      //   name: 'Markdown - Markup Raw Inline Punctuation',
+      //   scope: [
+      //     'text.html.markdown markup.inline.raw.markdown punctuation.definition.raw.markdown'
+      //   ],
+      //   settings: {
+      //     foreground: scheme.syntax.punctuation.hex()
+      //   }
+      // },
+      // {
+      //   name: 'Markdown - Heading',
+      //   scope: [
+      //     'markdown.heading',
+      //     'markup.heading | markup.heading entity.name',
+      //     'markup.heading.markdown punctuation.definition.heading.markdown'
+      //   ],
+      //   settings: {
+      //     foreground: scheme.syntax.string.hex()
+      //   }
+      // },
+      // {
+      //   name: 'Markup - Italic',
+      //   scope: ['markup.italic'],
+      //   settings: {
+      //     fontStyle: 'italic',
+      //     foreground: scheme.syntax.tag.hex()
+      //   }
+      // },
+      // {
+      //   name: 'Markup - Bold',
+      //   scope: ['markup.bold', 'markup.bold string'],
+      //   settings: {
+      //     fontStyle: 'bold',
+      //     foreground: scheme.syntax.tag.hex()
+      //   }
+      // },
+      // {
+      //   name: 'Markup - Bold-Italic',
+      //   scope: [
+      //     'markup.bold markup.italic',
+      //     'markup.italic markup.bold',
+      //     'markup.quote markup.bold',
+      //     'markup.bold markup.italic string',
+      //     'markup.italic markup.bold string',
+      //     'markup.quote markup.bold string'
+      //   ],
+      //   settings: {
+      //     fontStyle: 'bold',
+      //     foreground: scheme.syntax.tag.hex()
+      //   }
+      // },
+      // {
+      //   name: 'Markup - Underline',
+      //   scope: ['markup.underline'],
+      //   settings: {
+      //     fontStyle: 'underline',
+      //     foreground: scheme.syntax.numeric.hex()
+      //   }
+      // },
+      // {
+      //   name: 'Markdown - Blockquote',
+      //   scope: ['markup.quote punctuation.definition.blockquote.markdown'],
+      //   settings: {
+      //     foreground: scheme.syntax.punctuation.hex()
+      //   }
+      // },
+      // {
+      //   name: 'Markup - Quote',
+      //   scope: ['markup.quote'],
+      //   settings: {
+      //     fontStyle: 'italic'
+      //   }
+      // },
+      // {
+      //   name: 'Markdown - Link',
+      //   scope: ['string.other.link.title.markdown'],
+      //   settings: {
+      //     foreground: scheme.syntax.func.name.hex()
+      //   }
+      // },
+      // {
+      //   name: 'Markdown - Link Description',
+      //   scope: ['string.other.link.description.title.markdown'],
+      //   settings: {
+      //     foreground: scheme.syntax.keyword.hex()
+      //   }
+      // },
+      // {
+      //   name: 'Markdown - Link Anchor',
+      //   scope: ['constant.other.reference.link.markdown'],
+      //   settings: {
+      //     foreground: scheme.syntax.class.name.hex()
+      //   }
+      // },
+      // {
+      //   name: 'Markup - Raw Block',
+      //   scope: ['markup.raw.block'],
+      //   settings: {
+      //     foreground: scheme.syntax.keyword.hex()
+      //   }
+      // },
+      // {
+      //   name: 'Markdown - Raw Block Fenced',
+      //   scope: ['markup.raw.block.fenced.markdown'],
+      //   settings: {
+      //     foreground: scheme.ui.panel.shadow.hex()
+      //   }
+      // },
+      // {
+      //   name: 'Markdown - Fenced Bode Block',
+      //   scope: ['punctuation.definition.fenced.markdown'],
+      //   settings: {
+      //     foreground: scheme.ui.panel.shadow.hex()
+      //   }
+      // },
+      // {
+      //   name: 'Markdown - Fenced Bode Block Variable',
+      //   scope: [
+      //     'markup.raw.block.fenced.markdown',
+      //     'variable.language.fenced.markdown',
+      //     'punctuation.section.class.end'
+      //   ],
+      //   settings: {
+      //     foreground: scheme.editor.fg.brighten(0.4).hex()
+      //   }
+      // },
+      // {
+      //   name: 'Markdown - Fenced Language',
+      //   scope: ['variable.language.fenced.markdown'],
+      //   settings: {
+      //     foreground: scheme.syntax.punctuation.hex()
+      //   }
+      // },
+      // {
+      //   name: 'Markdown - Separator',
+      //   scope: ['meta.separator'],
+      //   settings: {
+      //     fontStyle: 'bold',
+      //     foreground: scheme.syntax.punctuation.hex()
+      //   }
+      // },
+      // {
+      //   name: 'Markup - Table',
+      //   scope: ['markup.table'],
+      //   settings: {
+      //     foreground: scheme.editor.fg.brighten(0.4).hex()
+      //   }
+      // }
+      // --------------------
       {
-        name: 'Markdown - Plain',
-        scope: [
-          'text.html.markdown',
-          'punctuation.definition.list_item.markdown'
-        ],
+        name: 'Inserted',
+        scope: ['markup.inserted'],
         settings: {
-          foreground: scheme.editor.fg.brighten(0.4).hex()
+          foreground: scheme.git.added.hex()
         }
       },
       {
-        name: 'Markdown - Markup Raw Inline',
-        scope: ['text.html.markdown markup.inline.raw.markdown'],
+        name: 'Deleted',
+        scope: ['markup.deleted'],
         settings: {
-          foreground: scheme.syntax.keyword.hex()
+          foreground: scheme.git.deleted.hex()
         }
       },
       {
-        name: 'Markdown - Markup Raw Inline Punctuation',
-        scope: [
-          'text.html.markdown markup.inline.raw.markdown punctuation.definition.raw.markdown'
-        ],
+        name: 'Changed',
+        scope: ['markup.changed'],
         settings: {
-          foreground: scheme.syntax.punctuation.hex()
-        }
-      },
-      {
-        name: 'Markdown - Heading',
-        scope: [
-          'markdown.heading',
-          'markup.heading | markup.heading entity.name',
-          'markup.heading.markdown punctuation.definition.heading.markdown'
-        ],
-        settings: {
-          foreground: scheme.syntax.string.hex()
-        }
-      },
-      {
-        name: 'Markup - Italic',
-        scope: ['markup.italic'],
-        settings: {
-          fontStyle: 'italic',
-          foreground: scheme.syntax.tag.hex()
-        }
-      },
-      {
-        name: 'Markup - Bold',
-        scope: ['markup.bold', 'markup.bold string'],
-        settings: {
-          fontStyle: 'bold',
-          foreground: scheme.syntax.tag.hex()
-        }
-      },
-      {
-        name: 'Markup - Bold-Italic',
-        scope: [
-          'markup.bold markup.italic',
-          'markup.italic markup.bold',
-          'markup.quote markup.bold',
-          'markup.bold markup.italic string',
-          'markup.italic markup.bold string',
-          'markup.quote markup.bold string'
-        ],
-        settings: {
-          fontStyle: 'bold',
-          foreground: scheme.syntax.tag.hex()
-        }
-      },
-      {
-        name: 'Markup - Underline',
-        scope: ['markup.underline'],
-        settings: {
-          fontStyle: 'underline',
-          foreground: scheme.syntax.numeric.hex()
-        }
-      },
-      {
-        name: 'Markdown - Blockquote',
-        scope: ['markup.quote punctuation.definition.blockquote.markdown'],
-        settings: {
-          foreground: scheme.syntax.punctuation.hex()
-        }
-      },
-      {
-        name: 'Markup - Quote',
-        scope: ['markup.quote'],
-        settings: {
-          fontStyle: 'italic'
-        }
-      },
-      {
-        name: 'Markdown - Link',
-        scope: ['string.other.link.title.markdown'],
-        settings: {
-          foreground: scheme.syntax.func.name.hex()
-        }
-      },
-      {
-        name: 'Markdown - Link Description',
-        scope: ['string.other.link.description.title.markdown'],
-        settings: {
-          foreground: scheme.syntax.keyword.hex()
-        }
-      },
-      {
-        name: 'Markdown - Link Anchor',
-        scope: ['constant.other.reference.link.markdown'],
-        settings: {
-          foreground: scheme.syntax.class.hex()
-        }
-      },
-      {
-        name: 'Markup - Raw Block',
-        scope: ['markup.raw.block'],
-        settings: {
-          foreground: scheme.syntax.keyword.hex()
-        }
-      },
-      {
-        name: 'Markdown - Raw Block Fenced',
-        scope: ['markup.raw.block.fenced.markdown'],
-        settings: {
-          foreground: scheme.ui.panel.shadow.hex()
-        }
-      },
-      {
-        name: 'Markdown - Fenced Bode Block',
-        scope: ['punctuation.definition.fenced.markdown'],
-        settings: {
-          foreground: scheme.ui.panel.shadow.hex()
-        }
-      },
-      {
-        name: 'Markdown - Fenced Bode Block Variable',
-        scope: [
-          'markup.raw.block.fenced.markdown',
-          'variable.language.fenced.markdown',
-          'punctuation.section.class.end'
-        ],
-        settings: {
-          foreground: scheme.editor.fg.brighten(0.4).hex()
-        }
-      },
-      {
-        name: 'Markdown - Fenced Language',
-        scope: ['variable.language.fenced.markdown'],
-        settings: {
-          foreground: scheme.syntax.punctuation.hex()
-        }
-      },
-      {
-        name: 'Markdown - Separator',
-        scope: ['meta.separator'],
-        settings: {
-          fontStyle: 'bold',
-          foreground: scheme.syntax.punctuation.hex()
-        }
-      },
-      {
-        name: 'Markup - Table',
-        scope: ['markup.table'],
-        settings: {
-          foreground: scheme.editor.fg.brighten(0.4).hex()
+          foreground: scheme.git.modified.hex()
         }
       }
     ]

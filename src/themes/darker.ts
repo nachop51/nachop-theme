@@ -1,4 +1,5 @@
 import color from 'chroma-js'
+import { type Common, type Terminal, type FullTheme } from '../types'
 
 const colors = {
   editor: {
@@ -80,7 +81,7 @@ const syntax = {
 const editor = {
   bg: color(colors.editor.bg),
   fg: color(colors.editor.fg),
-  // line: color('#') ??
+  cursor: color(colors.cursor),
   selection: {
     active: color(colors.accent).darken(0.6).alpha(0.5),
     inactive: color(colors.accent).alpha(0.1)
@@ -102,11 +103,11 @@ const editor = {
 const ui = {
   fg: color(colors.ui.fg),
   bg: color(colors.ui.bg),
-  cursor: color(colors.cursor),
   border: color(colors.border),
   borderActive: color(colors.primary),
   selection: {
-    active: color(colors.accent).darken(0.5).alpha(0.6),
+    active: color(colors.accent).darken(0.5),
+    hover: color(colors.accent).darken(0.5).alpha(0.3),
     normal: color(colors.accent).darken(0.5).alpha(0.3)
   },
   panel: {
@@ -115,7 +116,7 @@ const ui = {
   }
 }
 
-const common = {
+const common: Common = {
   primary: color(colors.primary),
   accent: color(colors.accent),
   info: color(colors.info),
@@ -127,7 +128,7 @@ const common = {
   brackets3: color('#49d9e8')
 }
 
-const terminal = {
+const terminal: Terminal = {
   ansiBlack: color('#3f4451'),
   ansiBrightBlack: color('#4f5666'),
   ansiBlue: color('#4aa5f0'),
@@ -150,7 +151,7 @@ const terminal = {
   selectionBackground: color(colors.accent).darken(0.5).alpha(0.6)
 }
 
-export default {
+const theme: FullTheme = {
   syntax,
   git,
   ui,
@@ -158,3 +159,5 @@ export default {
   common,
   editor
 }
+
+export default theme

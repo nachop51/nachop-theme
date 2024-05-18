@@ -1,16 +1,15 @@
 import darkTheme from './themes/dark.js'
-import darkerTheme from './themes/darker.js'
-import piggyTheme from './themes/piggy.js'
+// import darkerTheme from './themes/darker.js'
+// import piggyTheme from './themes/piggy.js'
 // import lightTheme from './themes/light.js'
+import { type FullTheme } from './types.d'
 
-export type SchemaType = typeof darkTheme
+export type Schemas = 'dark' // | 'darker' | 'piggy' | 'light'
 
-export type Schemas = 'dark' | 'darker' | 'piggy'// | 'light'
-
-const nachopColors: Record<Schemas, SchemaType> = {
-  dark: darkTheme,
-  darker: darkerTheme,
-  piggy: piggyTheme
+const nachopColors: Record<Schemas, FullTheme> = {
+  dark: darkTheme
+  // darker: darkerTheme
+  // piggy: piggyTheme
   // light: lightTheme
 }
 
