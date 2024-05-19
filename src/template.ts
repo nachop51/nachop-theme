@@ -130,7 +130,7 @@ export default function template (schema: Schemas, isBordered: boolean) {
       'list.highlightForeground': scheme.common.accent.brighten(2).hex(),
       'list.deemphasizedForeground': scheme.common.error.hex(),
       'list.hoverBackground': scheme.ui.selection.hover.hex(),
-      'list.hoverForeground': scheme.ui.fg.hex(),
+      'list.hoverForeground': scheme.editor.fg.hex(),
 
       'list.inactiveSelectionBackground': scheme.common.accent.darken(0.4).hex(),
       'list.inactiveSelectionForeground': scheme.editor.fg.hex(),
@@ -186,26 +186,26 @@ export default function template (schema: Schemas, isBordered: boolean) {
 
       // Text colors
       'textBlockQuote.background': scheme.ui.panel.bg.hex(),
-      'textLink.foreground': scheme.common.accent.brighten(2).hex(),
-      'textLink.activeForeground': scheme.common.accent.brighten(3).hex(),
+      'textLink.foreground': scheme.common.primary.hex(),
+      'textLink.activeForeground': scheme.common.primary.brighten(0.5).hex(),
       'textPreformat.background': scheme.editor.bg.brighten(0.8).hex(),
       'textPreformat.foreground': scheme.editor.fg.hex(),
 
       // Badge
       'badge.background': scheme.common.accent.alpha(0.2).hex(),
-      'badge.foreground': scheme.common.accent.darken(0.2).hex(),
+      'badge.foreground': scheme.common.primary.hex(),
 
       // Extensions
-      'extensionButton.prominentForeground': scheme.editor.bg.hex(),
+      'extensionButton.prominentForeground': scheme.editor.fg.hex(),
       'extensionButton.prominentBackground': scheme.common.accent.hex(),
       'extensionButton.prominentHoverBackground': scheme.common.accent.darken(0.1).hex(),
 
       // Picker
       'pickerGroup.border': scheme.ui.border.hex(),
-      'pickerGroup.foreground': scheme.ui.fg.alpha(0.5).hex(),
+      'pickerGroup.foreground': scheme.common.primary.hex(),
 
       // Progress bar
-      'progressBar.background': scheme.common.accent.hex(),
+      'progressBar.background': scheme.common.primary.hex(),
 
       // DIFF EDITOR
       'diffEditor.insertedTextBackground': scheme.git.added.alpha(0.12).hex(),
@@ -749,8 +749,6 @@ export default function template (schema: Schemas, isBordered: boolean) {
           'source.css support.type.property-name',
           'source.sass support.type.property-name',
           'source.scss support.type.property-name',
-          'source.less support.type.property-name',
-          'source.stylus support.type.property-name',
           'source.postcss support.type.property-name',
           'support.type.property-name.css'
         ],
@@ -796,7 +794,21 @@ export default function template (schema: Schemas, isBordered: boolean) {
         name: 'CSS Units',
         scope: ['keyword.other.unit.css', 'constant.numeric.css'],
         settings: {
-          foreground: scheme.syntax.langs?.css?.units.hex() ?? scheme.syntax.numeric.darken(1).hex()
+          foreground: scheme.syntax.langs?.css?.units.hex() ?? scheme.syntax.numeric.hex()
+        }
+      },
+      {
+        name: 'CSS Property Value',
+        scope: [
+          'keyword.other.unit',
+          'support.constant.property-value.css',
+          'meta.property-value.css',
+          'meta.property-list.css',
+          'source.css',
+          'constant.other.color.rgb-value.hex.css'
+        ],
+        settings: {
+          foreground: scheme.syntax.macros.hex()
         }
       },
       {

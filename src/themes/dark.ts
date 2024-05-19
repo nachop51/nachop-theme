@@ -38,7 +38,7 @@ const colors = {
   punctuation: '#9899c5',
   comment: '#546E7A',
   class: '#FFCB6B',
-  numeric: '#F78C6C',
+  numeric: '#c9adff',
   regexp: '#95e6cb',
 
   shadow: '#00000050'
@@ -68,7 +68,7 @@ const syntax: Syntax = {
       id: color(colors.regexp),
       pseudo: color(colors.info),
       properties: color(colors.func.name).brighten(0.75),
-      units: color(colors.accent)
+      units: color(colors.numeric)
     }
   },
 

@@ -99,7 +99,7 @@
 		"list.highlightForeground": "#c9afe2",
 		"list.deemphasizedForeground": "#f7575f",
 		"list.hoverBackground": "#533e694d",
-		"list.hoverForeground": "#6c739a",
+		"list.hoverForeground": "#dcdfeb",
 		"list.inactiveSelectionBackground": "#57426e",
 		"list.inactiveSelectionForeground": "#dcdfeb",
 		"list.invalidItemForeground": "#ff7175",
@@ -141,18 +141,18 @@
 		"button.secondaryForeground": "#dcdfeb",
 		"button.secondaryHoverBackground": "#6c739a80",
 		"textBlockQuote.background": "#242936",
-		"textLink.foreground": "#c9afe2",
-		"textLink.activeForeground": "#fce1ff",
+		"textLink.foreground": "#aeaaff",
+		"textLink.activeForeground": "#c7c2ff",
 		"textPreformat.background": "#444957",
 		"textPreformat.foreground": "#dcdfeb",
 		"badge.background": "#69538033",
-		"badge.foreground": "#604a77",
-		"extensionButton.prominentForeground": "#242936",
+		"badge.foreground": "#aeaaff",
+		"extensionButton.prominentForeground": "#dcdfeb",
 		"extensionButton.prominentBackground": "#695380",
 		"extensionButton.prominentHoverBackground": "#644f7b",
 		"pickerGroup.border": "#171b24",
-		"pickerGroup.foreground": "#6c739a80",
-		"progressBar.background": "#695380",
+		"pickerGroup.foreground": "#aeaaff",
+		"progressBar.background": "#aeaaff",
 		"diffEditor.insertedTextBackground": "#99cc991f",
 		"diffEditor.removedTextBackground": "#f7575f1f",
 		"diffEditor.diagonalFill": "#171b24",
@@ -519,7 +519,7 @@
 				"keyword.other"
 			],
 			"settings": {
-				"foreground": "#f78c6c"
+				"foreground": "#c9adff"
 			}
 		},
 		{
@@ -713,8 +713,6 @@
 				"source.css support.type.property-name",
 				"source.sass support.type.property-name",
 				"source.scss support.type.property-name",
-				"source.less support.type.property-name",
-				"source.stylus support.type.property-name",
 				"source.postcss support.type.property-name",
 				"support.type.property-name.css"
 			],
@@ -768,7 +766,21 @@
 				"constant.numeric.css"
 			],
 			"settings": {
-				"foreground": "#695380"
+				"foreground": "#c9adff"
+			}
+		},
+		{
+			"name": "CSS Property Value",
+			"scope": [
+				"keyword.other.unit",
+				"support.constant.property-value.css",
+				"meta.property-value.css",
+				"meta.property-list.css",
+				"source.css",
+				"constant.other.color.rgb-value.hex.css"
+			],
+			"settings": {
+				"foreground": "#f29e74"
 			}
 		},
 		{
@@ -838,7 +850,7 @@
 				"source.json meta.structure.dictionary.json meta.structure.dictionary.value.json meta.structure.dictionary.json meta.structure.dictionary.value.json meta.structure.dictionary.json support.type.property-name.json"
 			],
 			"settings": {
-				"foreground": "#f78c6c"
+				"foreground": "#c9adff"
 			}
 		},
 		{
