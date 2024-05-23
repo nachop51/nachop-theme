@@ -325,9 +325,13 @@ export default function template (schema: Schemas, isBordered: boolean) {
 
       // Minimap options
       'minimap.background': isBordered ? scheme.editor.bg.hex() : scheme.ui.bg.hex(),
-      'minimap.selectionHighlight': scheme.editor.selection.active.hex(),
+      'minimap.selectionHighlight': scheme.common.primary.alpha(0.7).hex(),
+      'minimap.selectionOccurrenceHighlight': scheme.common.primary.alpha(0.95).hex(),
+      'minimap.findMatchHighlight': scheme.common.primary.alpha(0.8).hex(),
+
+      'minimap.warningHighlight': scheme.common.warn.hex(),
       'minimap.errorHighlight': scheme.common.error.hex(),
-      'minimap.findMatchHighlight': scheme.editor.findMatch.active.alpha(0.5).hex(),
+
       'minimapGutter.addedBackground': scheme.git.added.hex(),
       'minimapGutter.deletedBackground': scheme.git.deleted.hex(),
       'minimapGutter.modifiedBackground': scheme.git.modified.hex(),

@@ -51,26 +51,6 @@
         "label": "Nachop dark bordered",
         "uiTheme": "vs-dark",
         "path": "./themes/nachop-dark-bordered.json"
-      },
-      {
-        "label": "Nachop darker",
-        "uiTheme": "vs-dark",
-        "path": "./themes/nachop-darker.json"
-      },
-      {
-        "label": "Nachop darker bordered",
-        "uiTheme": "vs-dark",
-        "path": "./themes/nachop-darker-bordered.json"
-      },
-      {
-        "label": "Piggy",
-        "uiTheme": "vs-dark",
-        "path": "./themes/nachop-piggy.json"
-      },
-      {
-        "label": "Piggy bordered",
-        "uiTheme": "vs-dark",
-        "path": "./themes/nachop-piggy-bordered.json"
       }
     ]
   },
@@ -79,6 +59,7 @@
     "lint": "eslint . --ext .json",
     "prepublish": "npm run lint",
     "build": "bun ./src/build.ts",
+    "dev": "bun --watch ./src/build.ts",
     "package": "vsce package",
     "publish": "vsce publish"
   },

@@ -10,16 +10,19 @@ const colors = {
     bg: '#1f2430',
     fg: '#6c739a'
   },
+
   cursor: '#dc52ff',
   gutter: '#495162',
 
   border: '#171b24',
+
   primary: '#aeaaff',
   accent: '#695380',
 
-  warn: '#d09494',
+  // Misc colors
   success: '#99cc99',
   info: '#80bfff',
+  warn: '#d09494',
   error: '#f7575f',
 
   keyword: '#ad72f3',
@@ -95,7 +98,7 @@ const editor: Editor = {
   fg: color(colors.editor.fg),
   cursor: color(colors.cursor),
   selection: {
-    active: color(colors.accent).darken(0.6).alpha(0.5),
+    active: color(colors.accent).darken(0.5).alpha(0.5),
     inactive: color(colors.accent).alpha(0.1)
   },
   findMatch: {
