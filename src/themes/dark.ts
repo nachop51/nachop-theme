@@ -11,23 +11,22 @@ const colors = {
     fg: '#6c739a'
   },
 
-  cursor: '#dc52ff',
+  cursor: '#FF00E4',
   gutter: '#495162',
 
   border: '#171b24',
 
   primary: '#aeaaff',
-  accent: '#695380',
+  accent: '#6C51E2',
 
   // Misc colors
   success: '#99cc99',
-  info: '#80bfff',
-  warn: '#d09494',
-  error: '#f7575f',
+  info: '#79B6FF',
+  warn: '#E0B494',
+  error: '#E04A7E',
 
   keyword: '#ad72f3',
   variables: '#ee6584',
-  tag: '#f07178',
   string: '#cae790',
   func: {
     name: '#79b9ee',
@@ -63,13 +62,14 @@ const syntax: Syntax = {
 
   langs: {
     html: {
-      tag: color(colors.tag),
-      attributes: color(colors.accent)
+      tag: color(colors.punctuation),
+      tagName: color(colors.variables),
+      attributes: color('#DB967B')
     },
     css: {
       class: color(colors.class),
       id: color(colors.regexp),
-      pseudo: color(colors.info),
+      pseudo: color('#ABC1FF'),
       properties: color(colors.func.name).brighten(0.75),
       units: color(colors.numeric)
     }
@@ -80,7 +80,6 @@ const syntax: Syntax = {
   string: color(colors.string),
   numeric: color(colors.numeric),
   operator: color(colors.info),
-  tag: color(colors.tag),
 
   variables: color(colors.variables),
   constant: color(colors.const),
@@ -98,12 +97,12 @@ const editor: Editor = {
   fg: color(colors.editor.fg),
   cursor: color(colors.cursor),
   selection: {
-    active: color(colors.accent).darken(0.5).alpha(0.5),
-    inactive: color(colors.accent).alpha(0.1)
+    active: color(colors.accent).alpha(0.25),
+    inactive: color(colors.accent).alpha(0.15)
   },
   findMatch: {
-    active: color(colors.accent),
-    inactive: color(colors.accent).alpha(0.4)
+    active: color(colors.accent).brighten(0.5).alpha(0.5),
+    inactive: color(colors.accent).alpha(0.25)
   },
   gutter: {
     active: color(colors.gutter),
@@ -121,9 +120,9 @@ const ui: UserInterface = {
   border: color(colors.border),
   borderActive: color(colors.primary),
   selection: {
-    active: color(colors.accent).darken(0.4),
-    hover: color(colors.accent).darken(0.5).alpha(0.3),
-    normal: color(colors.accent).darken(0.5).alpha(0.3)
+    active: color(colors.accent).alpha(0.5),
+    hover: color(colors.accent).alpha(0.1),
+    normal: color(colors.accent).alpha(0.4)
   },
   panel: {
     bg: color(colors.editor.bg),

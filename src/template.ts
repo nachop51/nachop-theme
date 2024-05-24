@@ -33,8 +33,9 @@ export default function template (schema: Schemas, isBordered: boolean) {
       'editor.background': isBordered ? scheme.editor.bg.hex() : scheme.ui.bg.hex(),
       'editor.foreground': scheme.editor.fg.hex(),
 
-      // -----------------------------------
+      // ------------------------------------
       'editor.selectionBackground': scheme.editor.selection.active.hex(),
+      'editor.inactiveSelectionBackground': scheme.editor.selection.inactive.hex(),
       'editor.selectionHighlightBackground': scheme.common.accent.alpha(0.3).hex(),
       'editor.selectionHighlightBorder': scheme.git.added.alpha(0).hex(),
 
@@ -85,17 +86,21 @@ export default function template (schema: Schemas, isBordered: boolean) {
       'editorGroupHeader.noTabsBackground': scheme.ui.bg.hex(),
       'editorGroupHeader.tabsBackground': scheme.ui.bg.hex(),
       'editorGroupHeader.tabsBorder': isBordered ? scheme.ui.border.hex() : scheme.ui.bg.hex(),
-      'tab.activeBackground': scheme.common.primary.darken(1.6).alpha(0.5).hex(),
-      'tab.hoverBackground': scheme.common.primary.darken(1.6).alpha(0.3).hex(),
-      'tab.activeBorder': scheme.editor.bg.hex(),
-      'tab.activeBorderTop': scheme.common.primary.hex(),
-      'tab.unfocusedActiveBorderTop': scheme.ui.fg.hex(),
+
+      'tab.activeBackground': scheme.ui.selection.active.alpha(0.4).hex(),
       'tab.activeForeground': scheme.editor.fg.hex(),
-      'tab.border': isBordered ? scheme.ui.border.hex() : scheme.ui.bg.hex(),
       'tab.inactiveBackground': scheme.ui.bg.hex(),
-      'tab.unfocusedHoverBackground': scheme.common.primary.darken(0.4).hex(),
-      'tab.unfocusedActiveBorder': scheme.common.primary.alpha(0.4).hex(),
       'tab.inactiveForeground': scheme.ui.fg.hex(),
+
+      'tab.hoverBackground': scheme.ui.selection.hover.hex(),
+
+      'tab.border': isBordered ? scheme.ui.border.hex() : scheme.ui.bg.hex(),
+      'tab.activeBorder': isBordered ? scheme.ui.border.hex() : scheme.ui.borderActive.hex(),
+      'tab.activeBorderTop': isBordered ? scheme.ui.borderActive.hex() : scheme.ui.bg.hex(),
+      'tab.unfocusedActiveBorder': scheme.common.primary.alpha(0.4).hex(),
+      'tab.unfocusedActiveBorderTop': scheme.ui.fg.hex(),
+
+      'tab.unfocusedHoverBackground': scheme.ui.selection.hover.hex(),
       'tab.unfocusedActiveForeground': scheme.ui.fg.hex(),
       'tab.unfocusedInactiveForeground': scheme.ui.fg.hex(),
 
@@ -103,7 +108,7 @@ export default function template (schema: Schemas, isBordered: boolean) {
       'editor.findMatchBackground': scheme.editor.findMatch.active.hex(),
       'editor.findMatchBorder': scheme.editor.findMatch.active.hex(),
       'editor.findMatchHighlightBackground': scheme.editor.findMatch.inactive.hex(),
-      'editor.findMatchHighlightBorder': scheme.editor.findMatch.inactive.darken(0.3).hex(),
+      'editor.findMatchHighlightBorder': scheme.editor.findMatch.inactive.hex(),
       'editor.findRangeHighlightBackground': scheme.editor.findMatch.inactive.alpha(0.25).hex(),
       'editor.rangeHighlightBackground': scheme.editor.findMatch.active.alpha(0.2).hex(),
       // --------------------
@@ -129,10 +134,11 @@ export default function template (schema: Schemas, isBordered: boolean) {
 
       'list.highlightForeground': scheme.common.accent.brighten(2).hex(),
       'list.deemphasizedForeground': scheme.common.error.hex(),
+
       'list.hoverBackground': scheme.ui.selection.hover.hex(),
       'list.hoverForeground': scheme.editor.fg.hex(),
 
-      'list.inactiveSelectionBackground': scheme.common.accent.darken(0.4).hex(),
+      'list.inactiveSelectionBackground': scheme.ui.selection.normal.hex(),
       'list.inactiveSelectionForeground': scheme.editor.fg.hex(),
 
       'list.invalidItemForeground': scheme.common.error.brighten(0.5).hex(),
@@ -232,9 +238,9 @@ export default function template (schema: Schemas, isBordered: boolean) {
 
       // Scrollbar
       'scrollbar.shadow': isBordered ? scheme.ui.border.alpha(0.4).hex() : scheme.ui.border.alpha(0).hex(),
-      'scrollbarSlider.background': scheme.common.accent.darken(0.4).alpha(0.4).hex(),
+      'scrollbarSlider.background': scheme.common.accent.alpha(0.3).hex(),
       'scrollbarSlider.hoverBackground': scheme.common.accent.alpha(0.4).hex(),
-      'scrollbarSlider.activeBackground': scheme.common.accent.alpha(0.7).hex(),
+      'scrollbarSlider.activeBackground': scheme.common.accent.alpha(0.6).hex(),
 
       // Input
       'input.background': scheme.editor.bg.hex(),
@@ -269,8 +275,8 @@ export default function template (schema: Schemas, isBordered: boolean) {
       'statusBar.foreground': scheme.ui.fg.hex(),
       'statusBar.border': scheme.ui.border.hex(),
       'statusBar.debuggingBackground': scheme.common.warn.hex(),
-      'statusBar.debuggingBorder': scheme.common.error.hex(),
-      'statusBar.debuggingForeground': scheme.editor.fg.hex(),
+      'statusBar.debuggingBorder': scheme.ui.bg.hex(),
+      'statusBar.debuggingForeground': scheme.ui.fg.darken(2).hex(),
       'statusBarItem.remoteBackground': scheme.common.primary.hex(),
       'statusBarItem.remoteForeground': scheme.ui.border.hex(),
       'statusBar.noFolderBackground': scheme.ui.bg.hex(),
@@ -574,12 +580,11 @@ export default function template (schema: Schemas, isBordered: boolean) {
       {
         name: 'Tag',
         scope: [
-          'entity.name.tag',
           'meta.tag.sgml',
           'markup.deleted.git_gutter'
         ],
         settings: {
-          foreground: scheme.syntax.tag.hex()
+          foreground: scheme.syntax.langs?.html?.tag?.hex() ?? scheme.syntax.variables.hex()
         }
       },
       {
@@ -708,7 +713,17 @@ export default function template (schema: Schemas, isBordered: boolean) {
       },
       // HTML Related
       {
-        name: 'HTML Tags',
+        name: 'HTML Tag name',
+        scope: [
+          'entity.name.tag',
+          'text.html.derivative'
+        ],
+        settings: {
+          foreground: scheme.syntax.langs?.html?.tagName?.hex() ?? scheme.syntax.variables.hex()
+        }
+      },
+      {
+        name: 'HTML <> Tags',
         scope: [
           'punctuation.definition.tag',
           'punctuation.definition.tag.html',
@@ -716,11 +731,11 @@ export default function template (schema: Schemas, isBordered: boolean) {
           'punctuation.definition.tag.end.html'
         ],
         settings: {
-          foreground: '#b51d87'
+          foreground: scheme.syntax?.langs?.html?.tag?.hex() ?? scheme.syntax.punctuation.hex()
         }
       },
       {
-        name: 'HTML Tag HTML inside',
+        name: 'HTML Tag HTML inside (text)',
         scope: [
           'meta.tag',
           'text.html.basic',
@@ -742,7 +757,7 @@ export default function template (schema: Schemas, isBordered: boolean) {
         name: 'HTML & JSX Properties/Attributes',
         scope: ['entity.other.attribute-name'],
         settings: {
-          foreground: '#dc9e65', // Could be scheme.syntax.class darkened
+          foreground: scheme.syntax.langs?.html?.attributes?.hex() ?? scheme.syntax.macros.hex(),
           fontStyle: 'italic'
         }
       },
@@ -757,28 +772,28 @@ export default function template (schema: Schemas, isBordered: boolean) {
           'support.type.property-name.css'
         ],
         settings: {
-          foreground: scheme.syntax.langs?.css?.properties.hex() ?? scheme.syntax.func.name.brighten(0.75).hex()
+          foreground: scheme.syntax.langs?.css?.properties?.hex() ?? scheme.syntax.func.name.brighten(0.75).hex()
         }
       },
       {
         name: 'CSS Classes',
         scope: ['entity.other.attribute-name.class'],
         settings: {
-          foreground: scheme.syntax.langs?.css?.class.hex() ?? scheme.syntax.class.name.hex()
+          foreground: scheme.syntax.langs?.css?.class?.hex() ?? scheme.syntax.class.name.hex()
         }
       },
       {
         name: 'CSS ID Selector',
         scope: 'entity.other.attribute-name.id',
         settings: {
-          foreground: scheme.syntax.langs?.css?.id.hex() ?? scheme.syntax.func.name.brighten(0.5).hex()
+          foreground: scheme.syntax.langs?.css?.id?.hex() ?? scheme.syntax.func.name.brighten(0.5).hex()
         }
       },
       {
         name: 'Pseudo CSS',
         scope: ['entity.other.attribute-name.pseudo-element', 'entity.other.attribute-name.pseudo-class'],
         settings: {
-          foreground: scheme.syntax.langs?.css?.pseudo.hex() ?? scheme.syntax.constant.hex(),
+          foreground: scheme.syntax.langs?.css?.pseudo?.hex() ?? scheme.syntax.constant.hex(),
           fontStyle: 'italic'
         }
       },
@@ -798,7 +813,7 @@ export default function template (schema: Schemas, isBordered: boolean) {
         name: 'CSS Units',
         scope: ['keyword.other.unit.css', 'constant.numeric.css'],
         settings: {
-          foreground: scheme.syntax.langs?.css?.units.hex() ?? scheme.syntax.numeric.hex()
+          foreground: scheme.syntax.langs?.css?.units?.hex() ?? scheme.syntax.numeric.hex()
         }
       },
       {

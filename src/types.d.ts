@@ -15,15 +15,16 @@ export interface Syntax {
 
   langs?: {
     html?: {
-      tag: Color
-      attributes: Color
+      tag?: Color
+      tagName?: Color
+      attributes?: Color
     }
     css?: {
-      class: Color
-      id: Color
-      pseudo: Color
-      properties: Color
-      units: Color
+      class?: Color
+      id?: Color
+      pseudo?: Color
+      properties?: Color
+      units?: Color
     }
   }
 
@@ -32,7 +33,6 @@ export interface Syntax {
   string: Color
   numeric: Color
   operator: Color
-  tag: Color
 
   variables: Color
   constant: Color
