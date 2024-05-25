@@ -85,6 +85,7 @@ export interface UserInterface {
 
 export interface Common {
   primary: Color
+  primaryContent: Color
   accent: Color
   info: Color
   warn: Color
@@ -126,6 +127,7 @@ export interface Terminal {
 }
 
 export interface FullTheme {
+  type: 'dark' | 'light'
   syntax: Syntax
   editor: Editor
   ui: UserInterface

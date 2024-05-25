@@ -5,7 +5,7 @@ export default function template (schema: Schemas, isBordered: boolean) {
 
   return {
     name: `Nachop ${schema}${isBordered ? ' Bordered' : ''}`,
-    type: schema,
+    type: scheme.type,
     semanticHighlighting: true,
     semanticTokenColors: {
       'parameter.label': scheme.editor.fg.hex(),
@@ -36,14 +36,15 @@ export default function template (schema: Schemas, isBordered: boolean) {
       // ------------------------------------
       'editor.selectionBackground': scheme.editor.selection.active.hex(),
       'editor.inactiveSelectionBackground': scheme.editor.selection.inactive.hex(),
-      'editor.selectionHighlightBackground': scheme.common.accent.alpha(0.3).hex(),
-      'editor.selectionHighlightBorder': scheme.git.added.alpha(0).hex(),
 
       // Word highlight (when the cursor is on a word, highlights all other occurrences of that word)
-      'editor.wordHighlightBackground': scheme.common.accent.alpha(0.7).hex(),
-      'editor.wordHighlightStrongBackground': scheme.common.accent.alpha(0.7).hex(),
-      'editor.wordHighlightBorder': scheme.common.accent.alpha(0.7).hex(),
-      'editor.wordHighlightStrongBorder': scheme.common.accent.alpha(0.7).hex(),
+      'editor.selectionHighlightBackground': scheme.editor.selection.inactive.hex(),
+      'editor.selectionHighlightBorder': scheme.editor.selection.inactive.hex(),
+
+      'editor.wordHighlightBackground': scheme.ui.selection.active.hex(),
+      'editor.wordHighlightBorder': scheme.ui.selection.active.hex(),
+      'editor.wordHighlightStrongBackground': scheme.ui.selection.active.hex(), // This is the most important one, if it's a variable or a function, the definition will be highlighted this color, and the others will be highlighted with the color above
+      'editor.wordHighlightStrongBorder': scheme.ui.selection.active.brighten(1).alpha(1).hex(),
 
       'editorBracketMatch.background': scheme.editor.gutter.normal.alpha(0.3).hex(),
       'editorBracketMatch.border': scheme.editor.gutter.active.alpha(0.3).hex(),
@@ -87,7 +88,7 @@ export default function template (schema: Schemas, isBordered: boolean) {
       'editorGroupHeader.tabsBackground': scheme.ui.bg.hex(),
       'editorGroupHeader.tabsBorder': isBordered ? scheme.ui.border.hex() : scheme.ui.bg.hex(),
 
-      'tab.activeBackground': scheme.ui.selection.active.alpha(0.4).hex(),
+      'tab.activeBackground': isBordered ? scheme.editor.bg.hex() : scheme.ui.bg.hex(),
       'tab.activeForeground': scheme.editor.fg.hex(),
       'tab.inactiveBackground': scheme.ui.bg.hex(),
       'tab.inactiveForeground': scheme.ui.fg.hex(),
@@ -184,7 +185,7 @@ export default function template (schema: Schemas, isBordered: boolean) {
 
       // Button
       'button.background': scheme.common.accent.hex(),
-      'button.foreground': scheme.editor.fg.hex(),
+      'button.foreground': scheme.common.primaryContent.hex(),
       'button.hoverBackground': scheme.common.accent.darken(0.2).hex(),
       'button.secondaryBackground': scheme.ui.fg.alpha(0.2).hex(),
       'button.secondaryForeground': scheme.editor.fg.hex(),
@@ -273,13 +274,16 @@ export default function template (schema: Schemas, isBordered: boolean) {
       // Status bar
       'statusBar.background': scheme.ui.bg.hex(),
       'statusBar.foreground': scheme.ui.fg.hex(),
-      'statusBar.border': scheme.ui.border.hex(),
+      'statusBar.border': isBordered ? scheme.ui.border.hex() : scheme.ui.bg.hex(),
+
       'statusBar.debuggingBackground': scheme.common.warn.hex(),
       'statusBar.debuggingBorder': scheme.ui.bg.hex(),
-      'statusBar.debuggingForeground': scheme.ui.fg.darken(2).hex(),
+      'statusBar.debuggingForeground': scheme.ui.fg.darken(1).hex(),
+
       'statusBarItem.remoteBackground': scheme.common.primary.hex(),
-      'statusBarItem.remoteForeground': scheme.ui.border.hex(),
-      'statusBar.noFolderBackground': scheme.ui.bg.hex(),
+      'statusBarItem.remoteForeground': scheme.type === 'dark' ? scheme.editor.fg.darken(1) : scheme.editor.bg.brighten(1).hex(),
+      'statusBar.noFolderBackground': scheme.ui.panel.bg.hex(),
+
       'statusBarItem.activeBackground': scheme.ui.fg.alpha(0.2).hex(),
       'statusBarItem.hoverBackground': scheme.ui.fg.alpha(0.2).hex(),
       'statusBarItem.prominentBackground': scheme.ui.border.hex(),
@@ -747,7 +751,8 @@ export default function template (schema: Schemas, isBordered: boolean) {
           'text.html.basic source.html punctuation.definition.string',
           'text.html.basic source.html string.quoted.double',
           'text.html.basic source.html string.quoted.single',
-          'text.html.basic source.html string.unquoted'
+          'text.html.basic source.html string.unquoted',
+          'text.html.derivative'
         ],
         settings: {
           foreground: scheme.editor.fg.hex()

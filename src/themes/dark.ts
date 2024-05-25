@@ -1,5 +1,5 @@
 import color from 'chroma-js'
-import type { Common, Editor, FullTheme, Git, Syntax, Terminal, UserInterface } from '../types.d'
+import type { Common, Editor, FullTheme, Git, Syntax, Terminal, UserInterface } from '../types.d.ts'
 
 const colors = {
   editor: {
@@ -120,9 +120,9 @@ const ui: UserInterface = {
   border: color(colors.border),
   borderActive: color(colors.primary),
   selection: {
-    active: color(colors.accent).alpha(0.5),
+    active: color(colors.accent).alpha(0.4),
     hover: color(colors.accent).alpha(0.1),
-    normal: color(colors.accent).alpha(0.4)
+    normal: color(colors.accent).alpha(0.3)
   },
   panel: {
     bg: color(colors.editor.bg),
@@ -132,6 +132,7 @@ const ui: UserInterface = {
 
 const common: Common = {
   primary: color(colors.primary),
+  primaryContent: color('#fff'),
   accent: color(colors.accent),
   info: color(colors.info),
   warn: color(colors.warn),
@@ -173,6 +174,7 @@ const terminal: Terminal = {
 }
 
 const theme: FullTheme = {
+  type: 'dark',
   syntax,
   git,
   ui,

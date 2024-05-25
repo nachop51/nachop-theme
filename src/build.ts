@@ -4,7 +4,7 @@ import { cwd } from 'node:process'
 import template from './template.js'
 import { type Schemas } from './nachop.js'
 
-const schemas: Schemas[] = ['dark'] // 'darker', 'piggy'
+const schemas: Schemas[] = ['dark', 'light'] // 'darker', 'piggy'
 
 const filePath = (schema: Schemas, isBordered: boolean) => {
   return path.join(cwd(), 'themes', `nachop-${schema}${isBordered ? '-bordered' : ''}.json`)
