@@ -1,0 +1,119 @@
+/* CSS Variables */
+:root {
+  --primary-color: #333;
+  --secondary-color: #555;
+  --hover-color: #fff;
+  --background-color: #f0f0f0;
+  --font-size-large: 2rem;
+  --padding: 1rem;
+  --border-radius: 0.5rem;
+}
+
+/* Global styles */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background-color: var(--background-color);
+}
+
+/* Class selector */
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+/* ID selector */
+#title {
+  font-size: var(--font-size-large);
+  color: var(--primary-color);
+}
+
+/* Type selector and pseudo-class */
+button:hover {
+  background-color: var(--secondary-color);
+  color: var(--hover-color);
+}
+
+/* Pseudo-element */
+button::after {
+  content: " ➔";
+}
+
+/* Flexbox */
+.flex-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+  padding: var(--padding);
+}
+
+.flex-item {
+  background-color: #ddd;
+  padding: var(--padding);
+  margin: calc(var(--padding) / 2);
+  border-radius: var(--border-radius);
+  text-align: center;
+}
+
+/* Grid */
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--padding);
+  width: 100%;
+  padding: var(--padding);
+}
+
+.grid-item {
+  background-color: #ccc;
+  padding: var(--padding);
+  border-radius: var(--border-radius);
+  text-align: center;
+}
+
+/* Keyframes for animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Animation */
+.animated {
+  animation: fadeIn 2s ease-in-out;
+}
+
+/* Transition */
+.transition {
+  transition: all 0.3s ease;
+}
+
+.transition:hover {
+  transform: scale(1.1);
+  background-color: var(--primary-color);
+  color: var(--hover-color);
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+  #title {
+    font-size: 1.5rem;
+  }
+
+  .flex-container {
+    flex-direction: column;
+  }
+
+  .grid-container {
+    grid-template-columns: 1fr;
+  }
+}

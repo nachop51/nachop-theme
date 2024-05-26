@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HTML Feature Demo</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+      }
+      .highlight {
+        color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Heading -->
+    <h1>HTML Feature Demonstration</h1>
+
+    <!-- Paragraph with a link -->
+    <p>
+      This is a <a href="https://www.example.com" target="_blank">link</a> in a
+      paragraph.
+    </p>
+
+    <!-- Image with alt text -->
+    <img src="https://via.placeholder.com/150" alt="Placeholder Image" />
+
+    <!-- Unordered List -->
+    <ul>
+      <li>List Item 1</li>
+      <li>List Item 2</li>
+      <li>List Item 3</li>
+    </ul>
+
+    <!-- Ordered List -->
+    <ol>
+      <li>First Item</li>
+      <li>Second Item</li>
+      <li>Third Item</li>
+    </ol>
+
+    <!-- Table -->
+    <table border="1">
+      <tr>
+        <th>Header 1</th>
+        <th>Header 2</th>
+      </tr>
+      <tr>
+        <td>Data 1</td>
+        <td>Data 2</td>
+      </tr>
+    </table>
+
+    <!-- Form -->
+    <form action="#" method="post">
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name" /><br /><br />
+
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" /><br /><br />
+
+      <input type="submit" value="Submit" />
+    </form>
+
+    <!-- Button with JavaScript -->
+    <button onclick="alert('Button Clicked!')">Click Me!</button>
+
+    <!-- Div with a class and inline style -->
+    <div class="highlight" style="margin-top: 20px">
+      This text is highlighted in red.
+    </div>
+
+    <!-- Script tag -->
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        // JavaScript interaction
+        const div = document.querySelector(".highlight");
+        div.innerHTML += " <strong>This text is added by JavaScript.</strong>";
+
+        // Function to change background color
+        function changeBackgroundColor() {
+          document.body.style.backgroundColor = "#f0f0f0";
+        }
+
+        // Change background color after 2 seconds
+        setTimeout(changeBackgroundColor, 2000);
+      });
+    </script>
+  </body>
+</html>
