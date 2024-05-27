@@ -4,4 +4,3 @@ node_modules/
 .gitignore
 .gitattributes
 vsc-extension-quickstart.md
-pnpm-lock.yaml

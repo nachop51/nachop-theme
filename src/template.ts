@@ -47,27 +47,29 @@ export default function template (schema: Schemas, isBordered: boolean) {
       'editor.wordHighlightStrongBorder': scheme.ui.selection.active.brighten(1).alpha(1).hex(),
 
       'editorBracketMatch.background': scheme.editor.gutter.normal.alpha(0.3).hex(),
-      'editorBracketMatch.border': scheme.editor.gutter.active.alpha(0.3).hex(),
+      'editorBracketMatch.border': scheme.editor.gutter.active.alpha(0.5).hex(),
 
       'editorCursor.foreground': scheme.editor.cursor.hex(),
       'editorIndentGuide.background1': scheme.editor.indentGuide.normal.hex(),
       'editorIndentGuide.activeBackground1': scheme.editor.indentGuide.active.hex(),
       'editorLineNumber.foreground': scheme.editor.gutter.normal.hex(),
-      'editorMarkerNavigation.background': scheme.ui.panel.bg.hex(),
       'editorRuler.foreground': scheme.editor.indentGuide.normal.hex(),
       'editorWhitespace.foreground': scheme.editor.gutter.normal.hex(),
       'editorWarning.foreground': scheme.common.warn.hex(),
       'editorError.foreground': scheme.common.error.hex(),
+      'editorMarkerNavigation.background': scheme.ui.panel.bg.hex(),
 
       // Editor widget
-      'editorWidget.background': isBordered ? scheme.editor.bg.hex() : scheme.ui.panel.bg.hex(),
-      'editorWidget.border': scheme.ui.border.hex(),
       'editorHoverWidget.background': isBordered ? scheme.ui.bg.hex() : scheme.ui.panel.bg.hex(),
       'editorHoverWidget.border': scheme.ui.border.hex(),
+
       'editorSuggestWidget.background': scheme.ui.panel.bg.hex(),
       'editorSuggestWidget.border': scheme.ui.border.hex(),
       'editorSuggestWidget.highlightForeground': scheme.common.accent.hex(),
       'editorSuggestWidget.selectedBackground': scheme.ui.selection.active.hex(),
+
+      'editorWidget.background': isBordered ? scheme.editor.bg.hex() : scheme.ui.panel.bg.hex(),
+      'editorWidget.border': scheme.ui.border.hex(),
 
       // Editor overview ruler
       'editorOverviewRuler.border': scheme.ui.border.hex(),
@@ -83,7 +85,7 @@ export default function template (schema: Schemas, isBordered: boolean) {
       // -----------------------------------
 
       // Tabs options & editor groups
-      'editorGroup.border': scheme.ui.borderActive.hex(),
+      'editorGroup.border': scheme.ui.border.hex(),
       'editorGroupHeader.noTabsBackground': scheme.ui.bg.hex(),
       'editorGroupHeader.tabsBackground': scheme.ui.bg.hex(),
       'editorGroupHeader.tabsBorder': isBordered ? scheme.ui.border.hex() : scheme.ui.bg.hex(),
@@ -99,7 +101,7 @@ export default function template (schema: Schemas, isBordered: boolean) {
       'tab.activeBorder': isBordered ? scheme.ui.border.hex() : scheme.ui.borderActive.hex(),
       'tab.activeBorderTop': isBordered ? scheme.ui.borderActive.hex() : scheme.ui.bg.hex(),
       'tab.unfocusedActiveBorder': scheme.common.primary.alpha(0.4).hex(),
-      'tab.unfocusedActiveBorderTop': scheme.ui.fg.hex(),
+      'tab.unfocusedActiveBorderTop': scheme.ui.bg.hex(),
 
       'tab.unfocusedHoverBackground': scheme.ui.selection.hover.hex(),
       'tab.unfocusedActiveForeground': scheme.ui.fg.hex(),
@@ -218,6 +220,7 @@ export default function template (schema: Schemas, isBordered: boolean) {
       'diffEditor.insertedTextBackground': scheme.git.added.alpha(0.12).hex(),
       'diffEditor.removedTextBackground': scheme.git.deleted.alpha(0.12).hex(),
       'diffEditor.diagonalFill': scheme.ui.border.hex(),
+      'diffEditor.border': scheme.ui.border.hex(),
 
       // Welcome Page
       'welcomePage.tileBackground': scheme.ui.bg.hex(),
