@@ -72,6 +72,10 @@ const syntax: Syntax = {
       pseudo: color('#85A5FF'),
       properties: color(colors.func.name).brighten(0.75),
       units: color(colors.numeric)
+    },
+    markup: {
+      heading: color(colors.variables),
+      punctuation: color(colors.punctuation)
     }
   },
 
@@ -85,9 +89,7 @@ const syntax: Syntax = {
   constant: color(colors.const),
   macros: color(colors.macros),
 
-  entity: color(colors.accent),
   regexp: color(colors.regexp),
-  markup: color(colors.success),
   special: color(colors.warn),
   misc: color(colors.accent)
 }

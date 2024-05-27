@@ -883,202 +883,127 @@ export default function template (schema: Schemas, isBordered: boolean) {
           fontStyle: 'underline'
         }
       },
-      // JSON
+      // ------------ JSON ------------
       {
-        name: 'JSON Key - Level 0',
+        name: 'JSON Keys',
         scope: [
           'source.json meta.structure.dictionary.json support.type.property-name.json'
         ],
+        settings: {
+          foreground: scheme.syntax.variables.hex()
+        }
+      },
+      // ------------ Markdown ------------
+      {
+        name: 'Markdown - Plain',
+        scope: [
+          'text.html.markdown',
+          'punctuation.definition.list_item.markdown'
+        ],
+        settings: {
+          foreground: scheme.editor.fg.hex()
+        }
+      },
+      {
+        name: 'Markdown - Heading symbols',
+        scope: [
+          'markup.heading.markdown punctuation.definition.heading.markdown'
+        ],
+        settings: {
+          fontStyle: 'bold',
+          foreground: (scheme.syntax.langs?.markup?.heading ?? scheme.syntax.variables).darken(2).hex()
+        }
+      },
+      {
+        name: 'Markdown - Heading text',
+        scope: ['markup.heading.markdown entity.name'],
+        settings: {
+          fontStyle: 'bold',
+          foreground: scheme.syntax.langs?.markup?.heading?.hex() ?? scheme.syntax.variables.hex()
+        }
+      },
+      {
+        name: 'Markup - List punctuation',
+        scope: ['punctuation.definition.list.begin.markdown'],
+        settings: {
+          foreground: scheme.syntax.langs?.markup?.punctuation?.hex() ?? scheme.syntax.punctuation.hex()
+        }
+      },
+      {
+        name: 'Markup - Italic',
+        scope: ['markup.italic'],
+        settings: {
+          fontStyle: 'italic',
+          foreground: scheme.syntax.regexp.hex()
+        }
+      },
+      {
+        name: 'Markup - Bold',
+        scope: ['markup.bold', 'markup.bold string'],
+        settings: {
+          fontStyle: 'bold',
+          foreground: scheme.syntax.regexp.hex()
+        }
+      },
+      {
+        name: 'Markup - Bold-Italic',
+        scope: [
+          'markup.bold markup.italic',
+          'markup.italic markup.bold',
+          'markup.quote markup.bold',
+          'markup.bold markup.italic string',
+          'markup.italic markup.bold string',
+          'markup.quote markup.bold string'
+        ],
+        settings: {
+          fontStyle: 'bold italic',
+          foreground: scheme.syntax.regexp.hex()
+        }
+      },
+      {
+        name: 'Markup - Underline, Links?',
+        scope: ['markup.underline'],
+        settings: {
+          fontStyle: 'underline',
+          foreground: scheme.syntax.func.param.hex()
+        }
+      },
+      {
+        name: 'Markdown - Blockquote',
+        scope: ['markup.quote punctuation.definition.blockquote.markdown', 'markup.quote'],
+        settings: {
+          foreground: scheme.syntax.punctuation.hex()
+        }
+      },
+      {
+        name: 'Markdown - Link',
+        scope: ['string.other.link.title.markdown'],
+        settings: {
+          foreground: scheme.syntax.func.name.hex()
+        }
+      },
+      {
+        name: 'Markdown - Link Description',
+        scope: ['string.other.link.description.title.markdown'],
         settings: {
           foreground: scheme.syntax.keyword.hex()
         }
       },
       {
-        name: 'JSON Key - Level 1',
-        scope: [
-          'source.json meta.structure.dictionary.json meta.structure.dictionary.value.json meta.structure.dictionary.json support.type.property-name.json'
-        ],
+        name: 'Markdown - Horizontal line (---)',
+        scope: ['meta.separator'],
         settings: {
-          foreground: scheme.syntax.class.name.hex()
+          fontStyle: 'bold',
+          foreground: scheme.syntax.langs?.markup?.punctuation?.hex() ?? scheme.syntax.punctuation.hex()
         }
       },
       {
-        name: 'JSON Key - Level 2',
-        scope: [
-          'source.json meta.structure.dictionary.json meta.structure.dictionary.value.json meta.structure.dictionary.json meta.structure.dictionary.value.json meta.structure.dictionary.json support.type.property-name.json'
-        ],
+        name: 'Markup - Table',
+        scope: ['markup.table'],
         settings: {
-          foreground: scheme.syntax.numeric.hex()
+          foreground: scheme.editor.fg.hex()
         }
       },
-      // ----------------------
-      // Markdown
-      // {
-      //   name: 'Markdown - Plain',
-      //   scope: [
-      //     'text.html.markdown',
-      //     'punctuation.definition.list_item.markdown'
-      //   ],
-      //   settings: {
-      //     foreground: scheme.editor.fg.brighten(0.4).hex()
-      //   }
-      // },
-      // {
-      //   name: 'Markdown - Markup Raw Inline',
-      //   scope: ['text.html.markdown markup.inline.raw.markdown'],
-      //   settings: {
-      //     foreground: scheme.syntax.keyword.hex()
-      //   }
-      // },
-      // {
-      //   name: 'Markdown - Markup Raw Inline Punctuation',
-      //   scope: [
-      //     'text.html.markdown markup.inline.raw.markdown punctuation.definition.raw.markdown'
-      //   ],
-      //   settings: {
-      //     foreground: scheme.syntax.punctuation.hex()
-      //   }
-      // },
-      // {
-      //   name: 'Markdown - Heading',
-      //   scope: [
-      //     'markdown.heading',
-      //     'markup.heading | markup.heading entity.name',
-      //     'markup.heading.markdown punctuation.definition.heading.markdown'
-      //   ],
-      //   settings: {
-      //     foreground: scheme.syntax.string.hex()
-      //   }
-      // },
-      // {
-      //   name: 'Markup - Italic',
-      //   scope: ['markup.italic'],
-      //   settings: {
-      //     fontStyle: 'italic',
-      //     foreground: scheme.syntax.tag.hex()
-      //   }
-      // },
-      // {
-      //   name: 'Markup - Bold',
-      //   scope: ['markup.bold', 'markup.bold string'],
-      //   settings: {
-      //     fontStyle: 'bold',
-      //     foreground: scheme.syntax.tag.hex()
-      //   }
-      // },
-      // {
-      //   name: 'Markup - Bold-Italic',
-      //   scope: [
-      //     'markup.bold markup.italic',
-      //     'markup.italic markup.bold',
-      //     'markup.quote markup.bold',
-      //     'markup.bold markup.italic string',
-      //     'markup.italic markup.bold string',
-      //     'markup.quote markup.bold string'
-      //   ],
-      //   settings: {
-      //     fontStyle: 'bold',
-      //     foreground: scheme.syntax.tag.hex()
-      //   }
-      // },
-      // {
-      //   name: 'Markup - Underline',
-      //   scope: ['markup.underline'],
-      //   settings: {
-      //     fontStyle: 'underline',
-      //     foreground: scheme.syntax.numeric.hex()
-      //   }
-      // },
-      // {
-      //   name: 'Markdown - Blockquote',
-      //   scope: ['markup.quote punctuation.definition.blockquote.markdown'],
-      //   settings: {
-      //     foreground: scheme.syntax.punctuation.hex()
-      //   }
-      // },
-      // {
-      //   name: 'Markup - Quote',
-      //   scope: ['markup.quote'],
-      //   settings: {
-      //     fontStyle: 'italic'
-      //   }
-      // },
-      // {
-      //   name: 'Markdown - Link',
-      //   scope: ['string.other.link.title.markdown'],
-      //   settings: {
-      //     foreground: scheme.syntax.func.name.hex()
-      //   }
-      // },
-      // {
-      //   name: 'Markdown - Link Description',
-      //   scope: ['string.other.link.description.title.markdown'],
-      //   settings: {
-      //     foreground: scheme.syntax.keyword.hex()
-      //   }
-      // },
-      // {
-      //   name: 'Markdown - Link Anchor',
-      //   scope: ['constant.other.reference.link.markdown'],
-      //   settings: {
-      //     foreground: scheme.syntax.class.name.hex()
-      //   }
-      // },
-      // {
-      //   name: 'Markup - Raw Block',
-      //   scope: ['markup.raw.block'],
-      //   settings: {
-      //     foreground: scheme.syntax.keyword.hex()
-      //   }
-      // },
-      // {
-      //   name: 'Markdown - Raw Block Fenced',
-      //   scope: ['markup.raw.block.fenced.markdown'],
-      //   settings: {
-      //     foreground: scheme.ui.panel.shadow.hex()
-      //   }
-      // },
-      // {
-      //   name: 'Markdown - Fenced Bode Block',
-      //   scope: ['punctuation.definition.fenced.markdown'],
-      //   settings: {
-      //     foreground: scheme.ui.panel.shadow.hex()
-      //   }
-      // },
-      // {
-      //   name: 'Markdown - Fenced Bode Block Variable',
-      //   scope: [
-      //     'markup.raw.block.fenced.markdown',
-      //     'variable.language.fenced.markdown',
-      //     'punctuation.section.class.end'
-      //   ],
-      //   settings: {
-      //     foreground: scheme.editor.fg.brighten(0.4).hex()
-      //   }
-      // },
-      // {
-      //   name: 'Markdown - Fenced Language',
-      //   scope: ['variable.language.fenced.markdown'],
-      //   settings: {
-      //     foreground: scheme.syntax.punctuation.hex()
-      //   }
-      // },
-      // {
-      //   name: 'Markdown - Separator',
-      //   scope: ['meta.separator'],
-      //   settings: {
-      //     fontStyle: 'bold',
-      //     foreground: scheme.syntax.punctuation.hex()
-      //   }
-      // },
-      // {
-      //   name: 'Markup - Table',
-      //   scope: ['markup.table'],
-      //   settings: {
-      //     foreground: scheme.editor.fg.brighten(0.4).hex()
-      //   }
-      // }
-      // --------------------
       {
         name: 'Inserted',
         scope: ['markup.inserted'],
@@ -1100,6 +1025,7 @@ export default function template (schema: Schemas, isBordered: boolean) {
           foreground: scheme.git.modified.hex()
         }
       }
+      // --------------------
     ]
   }
 }

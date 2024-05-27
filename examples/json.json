@@ -1,0 +1,90 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "properties": {
+    "person": {
+      "type": "object",
+      "properties": {
+        "name": { "type": "string" },
+        "age": { "type": "integer" },
+        "isEmployee": { "type": "boolean" },
+        "skills": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "address": {
+          "type": "object",
+          "properties": {
+            "street": { "type": "string" },
+            "city": { "type": "string" },
+            "zipCode": { "type": "string" }
+          },
+          "required": ["street", "city", "zipCode"]
+        }
+      },
+      "required": ["name", "age", "isEmployee", "skills", "address"]
+    },
+    "employees": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "employeeId": { "type": "integer" },
+          "firstName": { "type": "string" },
+          "lastName": { "type": "string" },
+          "birthDate": { "type": "string", "format": "date" },
+          "hireDate": { "type": "string", "format": "date" },
+          "salary": { "type": "number" },
+          "department": { "type": "string" }
+        },
+        "required": [
+          "employeeId",
+          "firstName",
+          "lastName",
+          "birthDate",
+          "hireDate",
+          "salary",
+          "department"
+        ]
+      }
+    },
+    "departments": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "departmentId": { "type": "integer" },
+          "departmentName": { "type": "string" }
+        },
+        "required": ["departmentId", "departmentName"]
+      }
+    },
+    "projects": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "projectId": { "type": "string" },
+          "projectName": { "type": "string" },
+          "status": { "type": "string" },
+          "team": {
+            "type": "array",
+            "items": { "type": "string" }
+          }
+        },
+        "required": ["projectId", "projectName", "status", "team"]
+      }
+    },
+    "statistics": {
+      "type": "object",
+      "properties": {
+        "totalEmployees": { "type": "integer" },
+        "averageSalary": { "type": "number" },
+        "minSalary": { "type": "number" },
+        "maxSalary": { "type": "number" }
+      },
+      "required": ["totalEmployees", "averageSalary", "minSalary", "maxSalary"]
+    }
+  },
+  "required": ["person", "employees", "departments", "projects", "statistics"]
+}

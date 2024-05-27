@@ -26,6 +26,10 @@ export interface Syntax {
       properties?: Color
       units?: Color
     }
+    markup?: {
+      heading?: Color
+      punctuation?: Color
+    }
   }
 
   punctuation: Color
@@ -38,9 +42,7 @@ export interface Syntax {
   constant: Color
   macros: Color
 
-  entity: Color
   regexp: Color
-  markup: Color
   special: Color
   misc: Color
 }
