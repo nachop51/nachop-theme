@@ -1,5 +1,3 @@
-# Demonstrates Ruby features: classes, modules, methods, blocks, arrays, hashes, control flow, and file I/O
-
 # Module definition
 module Greeter
   def greet(name)

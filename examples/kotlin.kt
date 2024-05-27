@@ -1,5 +1,3 @@
-// Demonstrates Kotlin features: classes, functions, null safety, collections, and coroutines
-
 fun main() {
     // Class usage
     val person = Person("Alice", 30)

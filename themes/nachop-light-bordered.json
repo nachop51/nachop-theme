@@ -215,7 +215,7 @@
 		"activityBar.activeBorder": "#aeaaff",
 		"activityBar.border": "#ecdeff",
 		"activityBarBadge.background": "#aeaaff",
-		"activityBarBadge.foreground": "#5c6166",
+		"activityBarBadge.foreground": "#ffffff",
 		"dropdown.background": "#f5f3f5",
 		"dropdown.foreground": "#8a9199",
 		"dropdown.border": "#8a919945",
@@ -286,7 +286,8 @@
 			"scope": [
 				"variable",
 				"variable.parameter.function-call",
-				"variable.language"
+				"variable.language",
+				"entity.name.variable.local.cs"
 			],
 			"settings": {
 				"foreground": "#ee6584"
@@ -408,7 +409,7 @@
 		{
 			"name": "Language variable (this in js, etc)",
 			"scope": [
-				"variable.language"
+				"variable.language.this.js"
 			],
 			"settings": {
 				"fontStyle": "italic",
@@ -437,13 +438,23 @@
 			}
 		},
 		{
-			"name": "Imports and packages",
+			"name": "Import strings and packages",
 			"scope": [
 				"entity.name.import",
 				"entity.name.package"
 			],
 			"settings": {
 				"foreground": "#39ba21"
+			}
+		},
+		{
+			"name": "Import packages color (Java, CS)",
+			"scope": [
+				"storage.modifier.import.java",
+				"entity.name.type.namespace.cs"
+			],
+			"settings": {
+				"foreground": "#ffa861"
 			}
 		},
 		{
@@ -519,8 +530,7 @@
 				"support.constant",
 				"constant.character",
 				"constant.escape",
-				"keyword.other.unit",
-				"keyword.other"
+				"keyword.other.unit"
 			],
 			"settings": {
 				"foreground": "#bb99ff"
@@ -602,7 +612,9 @@
 				"support.other.namespace.use.php",
 				"meta.use.php",
 				"support.other.namespace.php",
-				"support.type.sys-types"
+				"support.type.sys-types",
+				"variable.other.object.cs",
+				"entity.other.inherited-class"
 			],
 			"settings": {
 				"foreground": "#ffa861"

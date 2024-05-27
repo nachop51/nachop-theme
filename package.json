@@ -2,7 +2,7 @@
   "name": "nachop-theme",
   "displayName": "Nachop theme",
   "description": "Mix of the best VSCode themes",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "publisher": "nachop51",
   "license": "MIT",
   "icon": "images/icon.png",
@@ -67,7 +67,7 @@
   "type": "module",
   "scripts": {
     "lint": "eslint . --ext .ts --fix",
-    "build": "tsc",
+    "build": "tsx src/build.ts",
     "dev": "tsx --watch src/build.ts",
     "package": "vsce package",
     "publish": "vsce publish"

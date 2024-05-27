@@ -284,7 +284,7 @@ export default function template (schema: Schemas, isBordered: boolean) {
       'statusBar.debuggingForeground': scheme.ui.fg.darken(1).hex(),
 
       'statusBarItem.remoteBackground': scheme.common.primary.hex(),
-      'statusBarItem.remoteForeground': scheme.type === 'dark' ? scheme.editor.fg.darken(1) : scheme.editor.bg.brighten(1).hex(),
+      'statusBarItem.remoteForeground': scheme.common.primaryContent.hex(),
       'statusBar.noFolderBackground': scheme.ui.panel.bg.hex(),
 
       'statusBarItem.activeBackground': scheme.ui.fg.alpha(0.2).hex(),
@@ -299,7 +299,7 @@ export default function template (schema: Schemas, isBordered: boolean) {
       'activityBar.activeBorder': scheme.common.primary.hex(),
       'activityBar.border': isBordered ? scheme.ui.border.hex() : scheme.ui.bg.hex(),
       'activityBarBadge.background': scheme.common.primary.hex(),
-      'activityBarBadge.foreground': scheme.editor.fg.hex(),
+      'activityBarBadge.foreground': scheme.common.primaryContent.hex(),
 
       // Dropdowns
       'dropdown.background': scheme.ui.bg.hex(),
@@ -324,7 +324,7 @@ export default function template (schema: Schemas, isBordered: boolean) {
       // Panel options (the bar that contains Problems, Output, Terminal, etc)
       'panel.background': scheme.ui.bg.hex(),
       'panel.border': scheme.ui.border.hex(),
-      'panelTitle.activeBorder': scheme.common.primary.hex(),
+      'panelTitle.activeBorder': scheme.ui.borderActive.hex(),
       'panelTitle.activeForeground': scheme.editor.fg.hex(),
       'panelTitle.inactiveForeground': scheme.ui.fg.hex(),
 
@@ -383,7 +383,8 @@ export default function template (schema: Schemas, isBordered: boolean) {
         scope: [
           'variable',
           'variable.parameter.function-call',
-          'variable.language'
+          'variable.language',
+          'entity.name.variable.local.cs'
         ],
         settings: {
           foreground: scheme.syntax.variables.hex()
@@ -475,7 +476,7 @@ export default function template (schema: Schemas, isBordered: boolean) {
       },
       {
         name: 'Language variable (this in js, etc)',
-        scope: ['variable.language'],
+        scope: ['variable.language.this.js'],
         settings: {
           fontStyle: 'italic',
           foreground: scheme.syntax.keyword.brighten(0.5).hex()
@@ -501,10 +502,17 @@ export default function template (schema: Schemas, isBordered: boolean) {
         }
       },
       {
-        name: 'Imports and packages',
+        name: 'Import strings and packages',
         scope: ['entity.name.import', 'entity.name.package'],
         settings: {
           foreground: scheme.syntax.string.darken(0.2).hex()
+        }
+      },
+      {
+        name: 'Import packages color (Java, CS)',
+        scope: ['storage.modifier.import.java', 'entity.name.type.namespace.cs'],
+        settings: {
+          foreground: scheme.syntax.class.name.hex()
         }
       },
       {
@@ -577,8 +585,7 @@ export default function template (schema: Schemas, isBordered: boolean) {
           'support.constant',
           'constant.character',
           'constant.escape',
-          'keyword.other.unit',
-          'keyword.other'
+          'keyword.other.unit'
         ],
         settings: {
           foreground: scheme.syntax.numeric.hex()
@@ -654,7 +661,9 @@ export default function template (schema: Schemas, isBordered: boolean) {
           'support.other.namespace.use.php',
           'meta.use.php',
           'support.other.namespace.php',
-          'support.type.sys-types'
+          'support.type.sys-types',
+          'variable.other.object.cs',
+          'entity.other.inherited-class'
         ],
         settings: {
           foreground: scheme.syntax.class.name.hex()

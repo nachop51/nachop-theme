@@ -1,3 +1,11 @@
+import random
+from random import randint
+
+print("Hello, World!")
+print(f"Random number: {randint(1, 100)}")
+print(f"Random number: {random.randint(1, 100)}")
+
+
 # Function definition
 def greet(name) -> str:
     return f"Hello, {name}!"

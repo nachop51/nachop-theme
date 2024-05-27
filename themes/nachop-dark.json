@@ -203,14 +203,7 @@
 		"statusBar.debuggingBorder": "#1f2430",
 		"statusBar.debuggingForeground": "#40486c",
 		"statusBarItem.remoteBackground": "#aeaaff",
-		"statusBarItem.remoteForeground": {
-			"_rgb": [
-				170.36000016555246,
-				173.26906136023604,
-				184.71449568053382,
-				1
-			]
-		},
+		"statusBarItem.remoteForeground": "#ffffff",
 		"statusBar.noFolderBackground": "#242936",
 		"statusBarItem.activeBackground": "#6c739a33",
 		"statusBarItem.hoverBackground": "#6c739a33",
@@ -222,7 +215,7 @@
 		"activityBar.activeBorder": "#aeaaff",
 		"activityBar.border": "#1f2430",
 		"activityBarBadge.background": "#aeaaff",
-		"activityBarBadge.foreground": "#dcdfeb",
+		"activityBarBadge.foreground": "#ffffff",
 		"dropdown.background": "#1f2430",
 		"dropdown.foreground": "#6c739a",
 		"dropdown.border": "#6c739a45",
@@ -293,7 +286,8 @@
 			"scope": [
 				"variable",
 				"variable.parameter.function-call",
-				"variable.language"
+				"variable.language",
+				"entity.name.variable.local.cs"
 			],
 			"settings": {
 				"foreground": "#ee6584"
@@ -415,7 +409,7 @@
 		{
 			"name": "Language variable (this in js, etc)",
 			"scope": [
-				"variable.language"
+				"variable.language.this.js"
 			],
 			"settings": {
 				"fontStyle": "italic",
@@ -444,13 +438,23 @@
 			}
 		},
 		{
-			"name": "Imports and packages",
+			"name": "Import strings and packages",
 			"scope": [
 				"entity.name.import",
 				"entity.name.package"
 			],
 			"settings": {
 				"foreground": "#c0dd86"
+			}
+		},
+		{
+			"name": "Import packages color (Java, CS)",
+			"scope": [
+				"storage.modifier.import.java",
+				"entity.name.type.namespace.cs"
+			],
+			"settings": {
+				"foreground": "#ffcb6b"
 			}
 		},
 		{
@@ -526,8 +530,7 @@
 				"support.constant",
 				"constant.character",
 				"constant.escape",
-				"keyword.other.unit",
-				"keyword.other"
+				"keyword.other.unit"
 			],
 			"settings": {
 				"foreground": "#c9adff"
@@ -609,7 +612,9 @@
 				"support.other.namespace.use.php",
 				"meta.use.php",
 				"support.other.namespace.php",
-				"support.type.sys-types"
+				"support.type.sys-types",
+				"variable.other.object.cs",
+				"entity.other.inherited-class"
 			],
 			"settings": {
 				"foreground": "#ffcb6b"
