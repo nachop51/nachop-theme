@@ -1,5 +1,5 @@
 .eslintrc.cjs
 package.json
-$themes/
 pnpm-lock.yaml
 tsconfig.json
+examples/
