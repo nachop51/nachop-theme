@@ -43,7 +43,13 @@ const colors = {
   numeric: '#BB99FF',
   regexp: '#58DBAF',
 
-  shadow: '#BB99FF40'
+  shadow: '#BB99FF40',
+
+  brackets: {
+    1: '#f3a84d',
+    2: '#e68aff',
+    3: '#49d9e8'
+  }
 }
 
 const syntax: Syntax = {

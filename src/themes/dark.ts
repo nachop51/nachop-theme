@@ -43,7 +43,13 @@ const colors = {
   numeric: '#c9adff',
   regexp: '#95e6cb',
 
-  shadow: '#00000050'
+  shadow: '#00000050',
+
+  brackets: {
+    1: '#f3a84d',
+    2: '#e68aff',
+    3: '#49d9e8'
+  }
 }
 
 const syntax: Syntax = {
@@ -141,9 +147,9 @@ const common: Common = {
   warn: color(colors.warn),
   success: color(colors.success),
   error: color(colors.error),
-  brackets1: color('#f3a84d'),
-  brackets2: color('#e68aff'),
-  brackets3: color('#49d9e8')
+  brackets1: color(colors.brackets[1]),
+  brackets2: color(colors.brackets[2]),
+  brackets3: color(colors.brackets[3])
 }
 
 const git: Git = {

@@ -79,3 +79,25 @@ console.log(`User name is: ${userName}`);
 // Update user to demonstrate optional chaining with existing object
 user = { name: "Bob", age: 25, address: { street: "123 Main St", city: "Anytown" } };
 console.log(`User address is: ${user.address?.street}, ${user.address?.city}`);
+
+
+class Greeter {
+  greeting: string;
+
+  constructor(message: string = "world") {
+    this.greeting = message;
+  }
+
+  greet(): string {
+    return `Hello, ${this.greeting}`;
+  }
+}
+
+const message = "world";
+let greeter = new Greeter("world");
+
+console.log(greeter.greet());
+console.log(message);
+
+
+
