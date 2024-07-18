@@ -729,7 +729,7 @@
 				"entity.other.attribute-name"
 			],
 			"settings": {
-				"foreground": "#db967b",
+				"foreground": "#e99c76",
 				"fontStyle": "italic"
 			}
 		},
@@ -769,7 +769,7 @@
 				"entity.other.attribute-name.pseudo-class"
 			],
 			"settings": {
-				"foreground": "#abc1ff",
+				"foreground": "#9899c5",
 				"fontStyle": "italic"
 			}
 		},

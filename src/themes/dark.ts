@@ -11,19 +11,20 @@ const colors = {
     fg: '#6c739a'
   },
 
-  cursor: '#FF00E4',
+  cursor: '#ff00e4',
   gutter: '#495162',
 
   border: '#171b24',
 
   primary: '#aeaaff',
-  accent: '#6C51E2',
+  primaryContent: '#fff',
+  accent: '#6c51e2',
 
   // Misc colors
   success: '#99cc99',
-  info: '#79B6FF',
-  warn: '#E0B494',
-  error: '#E04A7E',
+  info: '#79b6ff',
+  warn: '#e0b494',
+  error: '#e04a7e',
 
   keyword: '#ad72f3',
   variables: '#ee6584',
@@ -38,8 +39,8 @@ const colors = {
   const: '#f5dd87',
   macros: '#f29e74',
   punctuation: '#9899c5',
-  comment: '#546E7A',
-  class: '#FFCB6B',
+  comment: '#546e7a',
+  class: '#ffcb6b',
   numeric: '#c9adff',
   regexp: '#95e6cb',
 
@@ -70,12 +71,12 @@ const syntax: Syntax = {
     html: {
       tag: color(colors.punctuation),
       tagName: color(colors.variables),
-      attributes: color('#DB967B')
+      attributes: color(colors.macros).luminance(0.35).brighten(0.3)
     },
     css: {
       class: color(colors.class),
       id: color(colors.regexp),
-      pseudo: color('#ABC1FF'),
+      pseudo: color(colors.punctuation),
       properties: color(colors.func.name).brighten(0.75),
       units: color(colors.numeric)
     },
@@ -83,7 +84,6 @@ const syntax: Syntax = {
       heading: color(colors.primary),
       punctuation: color(colors.macros)
     }
-
   },
 
   punctuation: color(colors.punctuation),
@@ -141,7 +141,7 @@ const ui: UserInterface = {
 
 const common: Common = {
   primary: color(colors.primary),
-  primaryContent: color('#fff'),
+  primaryContent: color(colors.primaryContent),
   accent: color(colors.accent),
   info: color(colors.info),
   warn: color(colors.warn),
@@ -154,9 +154,9 @@ const common: Common = {
 
 const git: Git = {
   added: color(colors.success),
-  modified: color(colors.info).alpha(0.7),
-  deleted: color(colors.error).alpha(0.7),
-  ignored: color(colors.ui.fg).alpha(0.5)
+  modified: color(color(colors.info).alpha(0.7)),
+  deleted: color(color(colors.error).alpha(0.7)),
+  ignored: color(color(colors.ui.fg).alpha(0.5))
 }
 
 const terminal: Terminal = {

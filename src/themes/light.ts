@@ -17,6 +17,7 @@ const colors = {
   border: '#ECDEFF',
 
   primary: '#aeaaff',
+  primaryContent: '#fff',
   accent: '#6C51E2',
 
   // Misc colors
@@ -70,7 +71,7 @@ const syntax: Syntax = {
     html: {
       tag: color(colors.punctuation),
       tagName: color(colors.variables),
-      attributes: color('#DB967B')
+      attributes: color(colors.macros).luminance(0.35).brighten(0.1)
     },
     css: {
       class: color(colors.class),
@@ -140,15 +141,15 @@ const ui: UserInterface = {
 
 const common: Common = {
   primary: color(colors.primary),
-  primaryContent: color('#fff'),
+  primaryContent: color(colors.primaryContent),
   accent: color(colors.accent),
   info: color(colors.info),
   warn: color(colors.warn),
   success: color(colors.success),
   error: color(colors.error),
-  brackets1: color('#f3a84d'),
-  brackets2: color('#e68aff'),
-  brackets3: color('#49d9e8')
+  brackets1: color(colors.brackets[1]),
+  brackets2: color(colors.brackets[2]),
+  brackets3: color(colors.brackets[3])
 }
 
 const git: Git = {
