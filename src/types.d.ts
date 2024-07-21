@@ -5,8 +5,6 @@ export interface Syntax {
   func: {
     name: Color
     param: Color
-    lambda: Color
-    call: Color
   }
 
   class: {

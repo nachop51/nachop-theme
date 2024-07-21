@@ -2,7 +2,7 @@
   "name": "nachop-theme",
   "displayName": "Nachop theme",
   "description": "Mix of the best VSCode themes",
-  "version": "1.1.3",
+  "version": "1.2.0",
   "publisher": "nachop51",
   "license": "MIT",
   "icon": "images/icon.png",
@@ -33,16 +33,6 @@
   "contributes": {
     "themes": [
       {
-        "label": "Nachop old",
-        "uiTheme": "vs-dark",
-        "path": "./themes/nachop-old.json"
-      },
-      {
-        "label": "Nachop old bordered",
-        "uiTheme": "vs-dark",
-        "path": "./themes/nachop-old-bordered.json"
-      },
-      {
         "label": "Nachop",
         "uiTheme": "vs-dark",
         "path": "./themes/nachop-dark.json"
@@ -61,6 +51,16 @@
         "label": "Nachop light bordered",
         "uiTheme": "vs",
         "path": "./themes/nachop-light-bordered.json"
+      },
+      {
+        "label": "Facu",
+        "uiTheme": "vs-dark",
+        "path": "./themes/nachop-facu.json"
+      },
+      {
+        "label": "Facu bordered",
+        "uiTheme": "vs-dark",
+        "path": "./themes/nachop-facu-bordered.json"
       }
     ]
   },
@@ -78,19 +78,22 @@
     "@typescript-eslint/eslint-plugin": "^6.4.0",
     "@typescript-eslint/parser": "^6.0.0",
     "@vscode/vsce": "^2.26.1",
+    "chroma-js": "^2.4.2",
     "eslint": "^8.57.0",
     "eslint-config-standard": "^17.1.0",
     "eslint-config-standard-with-typescript": "^43.0.1",
     "eslint-plugin-import": "^2.29.1",
     "eslint-plugin-n": "^16.6.2",
     "eslint-plugin-promise": "^6.1.1",
-    "chroma-js": "^2.4.2",
-    "typescript": "^5.4.3",
-    "tsx": "^4.11.0"
+    "tsx": "^4.11.0",
+    "typescript": "^5.4.3"
   },
   "eslintConfig": {
     "parserOptions": {
       "project": "./tsconfig.json"
     }
+  },
+  "dependencies": {
+    "vs-theme-builder": "^1.0.25"
   }
 }
