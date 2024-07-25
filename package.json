@@ -69,6 +69,7 @@
     "lint": "eslint . --ext .ts --fix",
     "build": "tsx src/build.ts",
     "dev": "tsx --watch src/build.ts",
+    "prepublish": "npm run lint && npm run build",
     "package": "vsce package",
     "publish": "vsce publish"
   },
