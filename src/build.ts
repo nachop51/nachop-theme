@@ -4,7 +4,7 @@ import { cwd } from 'node:process'
 import darkSchema from './schemas/dark.js'
 import lightSchema from './schemas/light.js'
 import facuSchema from './schemas/facu.js'
-import type { FullTheme } from './types.d.ts'
+import type { FullTheme } from 'vs-theme-builder'
 
 import { buildThemeFromScheme, createSchemeFromColors } from 'vs-theme-builder'
 

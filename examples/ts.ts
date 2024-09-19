@@ -14,7 +14,7 @@ function greet(person: Person): string {
 enum Color {
   Red,
   Green,
-  Blue
+  Blue,
 }
 
 // Class definition
@@ -22,14 +22,14 @@ class Animal {
   constructor(public name: string) {}
 
   speak(): void {
-      console.log(`${this.name} makes a noise.`);
+    console.log(`${this.name} makes a noise.`);
   }
 }
 
 // Inheritance
 class Dog extends Animal {
   speak(): void {
-      console.log(`${this.name} barks.`);
+    console.log(`${this.name} barks.`);
   }
 }
 
@@ -77,27 +77,28 @@ let userName = user?.name ?? "Guest";
 console.log(`User name is: ${userName}`);
 
 // Update user to demonstrate optional chaining with existing object
-user = { name: "Bob", age: 25, address: { street: "123 Main St", city: "Anytown" } };
+user = {
+  name: "Bob",
+  age: 25,
+  address: { street: "123 Main St", city: "Anytown" },
+};
 console.log(`User address is: ${user.address?.street}, ${user.address?.city}`);
-
 
 class Greeter {
   greeting: string;
+  greetingPrefix: string = "Hello,";
 
-  constructor(message: string = "world") {
+  constructor(message: string = "esteemed guest") {
     this.greeting = message;
   }
 
-  greet(): string {
-    return `Hello, ${this.greeting}`;
+  greetWithTime(): string {
+    const currentHour = new Date().getHours();
+    const timeOfDay =
+      currentHour < 12 ? "morning" : currentHour < 18 ? "afternoon" : "evening";
+    return `${this.greetingPrefix} ${this.greeting}! Good ${timeOfDay}.`;
   }
 }
 
-const message = "world";
-let greeter = new Greeter("world");
-
-console.log(greeter.greet());
-console.log(message);
-
-
-
+let detailedGreeter = new Greeter("Alice");
+console.log(detailedGreeter.greetWithTime());
