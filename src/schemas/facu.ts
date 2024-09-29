@@ -28,9 +28,7 @@ const colors = {
   string: '#cae790',
   func: {
     name: '#79b9ee',
-    param: '#e0bdf2',
-    lambda: '#ad72f3',
-    call: '#ffd173'
+    param: '#e0bdf2'
   },
 
   const: '#f5dd87',
@@ -39,15 +37,7 @@ const colors = {
   comment: '#546e7a',
   class: '#ffcb6b',
   numeric: '#c9adff',
-  regexp: '#95e6cb',
-
-  shadow: '#00000050',
-
-  brackets: {
-    1: '#f3a84d',
-    2: '#e68aff',
-    3: '#49d9e8'
-  }
+  regexp: '#95e6cb'
 }
 
 export default colors

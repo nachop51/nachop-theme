@@ -4,3 +4,11 @@ node_modules/
 .gitignore
 .gitattributes
 vsc-extension-quickstart.md
+src/
+.eslintignore
+images/
+examples/
+tsconfig.json
+package-lock.json
+
+!images/icon.png

@@ -17,20 +17,12 @@ const colors = {
   primaryContent: '#fff',
   accent: '#6C51E2',
 
-  // Misc colors
-  success: '#98ca9a',
-  info: '#42A0ED',
-  warn: '#F09C60',
-  error: '#E04A7E',
-
   keyword: '#ad72f3',
   variables: '#ee6584',
   string: '#46C42D',
   func: {
     name: '#42A0ED',
-    param: '#DD9FFC',
-    lambda: '#ad72f3',
-    call: '#ffd173'
+    param: '#DD9FFC'
   },
 
   const: '#F0B838',
@@ -41,13 +33,7 @@ const colors = {
   numeric: '#BB99FF',
   regexp: '#58DBAF',
 
-  shadow: '#BB99FF40',
-
-  brackets: {
-    1: '#f3a84d',
-    2: '#e68aff',
-    3: '#49d9e8'
-  }
+  shadow: '#BB99FF40'
 }
 
 export default colors

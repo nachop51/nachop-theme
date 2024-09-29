@@ -1,4 +1,6 @@
-const colors = {
+import { type ColorScheme } from 'vs-theme-builder'
+
+const colors: ColorScheme = {
   editor: {
     bg: '#242936',
     fg: '#dcdfeb'
@@ -7,25 +9,19 @@ const colors = {
     bg: '#1f2430',
     fg: '#6c739a'
   },
+  border: '#171b24',
 
   cursor: '#ff00e4',
   gutter: '#495162',
-
-  border: '#171b24',
 
   primary: '#aeaaff',
   primaryContent: '#fff',
   accent: '#6c51e2',
 
-  // Misc colors
-  success: '#99cc99',
-  info: '#79b6ff',
-  warn: '#e0b494',
-  error: '#e04a7e',
-
-  keyword: '#ad72f3',
+  keyword: '#9e5bff',
   variables: '#ee6584',
   string: '#cae790',
+
   func: {
     name: '#79b9ee',
     param: '#e0bdf2'
@@ -37,15 +33,7 @@ const colors = {
   comment: '#546e7a',
   class: '#ffcb6b',
   numeric: '#c9adff',
-  regexp: '#95e6cb',
-
-  shadow: '#00000050',
-
-  brackets: {
-    1: '#f3a84d',
-    2: '#e68aff',
-    3: '#49d9e8'
-  }
+  regexp: '#95e6cb'
 }
 
 export default colors
