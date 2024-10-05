@@ -1,11 +1,10 @@
-import { buildThemeFromScheme, createSchemeFromColors } from 'vs-theme-builder'
+import { buildThemeFromScheme, createSchemeFromColors, type FullTheme } from 'vs-theme-builder'
 import fs from 'node:fs'
 import path from 'node:path'
 import { cwd } from 'node:process'
 import darkSchema from './schemas/dark.js'
 import lightSchema from './schemas/light.js'
 import facuSchema from './schemas/facu.js'
-import type { FullTheme } from 'vs-theme-builder'
 
 function filePath (name: string, isBordered: boolean) {
   return path.join(cwd(), 'themes', `nachop-${name}${isBordered ? '-bordered' : ''}.json`)
