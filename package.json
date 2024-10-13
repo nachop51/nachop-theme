@@ -2,7 +2,7 @@
   "name": "nachop-theme",
   "displayName": "Nachop theme",
   "description": "Mix of the best VSCode themes",
-  "version": "1.4.0",
+  "version": "1.5.0",
   "publisher": "nachop51",
   "license": "MIT",
   "icon": "images/icon.png",
@@ -33,34 +33,44 @@
   "contributes": {
     "themes": [
       {
-        "label": "Nachop",
+        "label": "Nachop Dark Bordered",
         "uiTheme": "vs-dark",
-        "path": "./themes/nachop-dark.json"
+        "path": "themes/nachop-dark-bordered.json"
       },
       {
-        "label": "Nachop bordered",
+        "label": "Nachop Dark",
         "uiTheme": "vs-dark",
-        "path": "./themes/nachop-dark-bordered.json"
+        "path": "themes/nachop-dark.json"
       },
       {
-        "label": "Nachop light",
-        "uiTheme": "vs",
-        "path": "./themes/nachop-light.json"
+        "label": "Nachop Light Bordered",
+        "uiTheme": "vs-dark",
+        "path": "themes/nachop-light-bordered.json"
       },
       {
-        "label": "Nachop light bordered",
-        "uiTheme": "vs",
-        "path": "./themes/nachop-light-bordered.json"
+        "label": "Nachop Light",
+        "uiTheme": "vs-dark",
+        "path": "themes/nachop-light.json"
+      },
+      {
+        "label": "Facu Bordered",
+        "uiTheme": "vs-dark",
+        "path": "themes/facu-bordered.json"
       },
       {
         "label": "Facu",
         "uiTheme": "vs-dark",
-        "path": "./themes/nachop-facu.json"
+        "path": "themes/facu.json"
       },
       {
-        "label": "Facu bordered",
+        "label": "Piggy Bordered",
         "uiTheme": "vs-dark",
-        "path": "./themes/nachop-facu-bordered.json"
+        "path": "themes/piggy-bordered.json"
+      },
+      {
+        "label": "Piggy",
+        "uiTheme": "vs-dark",
+        "path": "themes/piggy.json"
       }
     ]
   },

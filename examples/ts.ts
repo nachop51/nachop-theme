@@ -99,6 +99,6 @@ class Greeter {
     return `${this.greetingPrefix} ${this.greeting}! Good ${timeOfDay}.`;
   }
 }
-
+// Demonstrate class with default parameter
 let detailedGreeter = new Greeter("Alice");
 console.log(detailedGreeter.greetWithTime());
