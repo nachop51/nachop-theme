@@ -2,7 +2,7 @@
   "name": "nachop-theme",
   "displayName": "Nachop theme",
   "description": "Mix of the best VSCode themes",
-  "version": "1.51.0",
+  "version": "1.51.1",
   "publisher": "nachop51",
   "license": "MIT",
   "icon": "images/icon.png",
@@ -44,12 +44,12 @@
       },
       {
         "label": "Nachop Light Bordered",
-        "uiTheme": "vs-dark",
+        "uiTheme": "vs",
         "path": "themes/nachop-light-bordered.json"
       },
       {
         "label": "Nachop Light",
-        "uiTheme": "vs-dark",
+        "uiTheme": "vs",
         "path": "themes/nachop-light.json"
       },
       {
@@ -98,7 +98,7 @@
     "eslint-plugin-promise": "^6.1.1",
     "tsx": "^4.11.0",
     "typescript": "^5.4.3",
-    "vs-theme-builder": "^2.1.0"
+    "vs-theme-builder": "^2.1.1"
   },
   "eslintConfig": {
     "parserOptions": {
