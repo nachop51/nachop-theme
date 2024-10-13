@@ -59,6 +59,8 @@ def add(a, b):
     return a + b
 
 
+[{({([])})}]
+
 # Demonstrate class and decorator
 dog = Dog("Buddy")
 print(dog.speak())
