@@ -1,35 +1,33 @@
 {
   "name": "nachop-theme",
-  "displayName": "Nachop theme",
-  "description": "Mix of the best VSCode themes",
-  "version": "1.51.1",
-  "publisher": "nachop51",
-  "license": "MIT",
-  "icon": "images/icon.png",
+  "version": "1.52.0",
   "repository": {
     "type": "git",
-    "url": "https://github.com/Nachop51/nachop-theme.git"
+    "url": "https://github.com/nachop51/nachop-theme.git"
+  },
+  "devDependencies": {
+    "@types/bun": "^1.2.0",
+    "@types/chroma-js": "^2.4.4",
+    "@typescript-eslint/eslint-plugin": "^6.4.0",
+    "@typescript-eslint/parser": "^6.0.0",
+    "@vscode/vsce": "^2.26.1",
+    "chroma-js": "^2.4.2",
+    "eslint": "^8.57.0",
+    "eslint-config-standard": "^17.1.0",
+    "eslint-config-standard-with-typescript": "^43.0.1",
+    "eslint-plugin-import": "^2.29.1",
+    "eslint-plugin-n": "^16.6.2",
+    "eslint-plugin-promise": "^6.1.1",
+    "typescript": "^5.4.3",
+    "vs-theme-builder": "^2.1.1"
   },
   "bugs": {
-    "url": "https://github.com/Nachop51/nachop-theme/issues",
+    "url": "https://github.com/nachop51/nachop-theme/issues",
     "email": "nachoperalta0@gmail.com"
-  },
-  "engines": {
-    "vscode": "^1.82.0"
   },
   "categories": [
     "Themes"
   ],
-  "keywords": [
-    "theme",
-    "dark",
-    "light",
-    "color",
-    "syntax",
-    "highlighting",
-    "nachop"
-  ],
-  "homepage": "https://github.com/Nachop51/nachop-theme",
   "contributes": {
     "themes": [
       {
@@ -71,38 +69,47 @@
         "label": "Piggy",
         "uiTheme": "vs-dark",
         "path": "themes/piggy.json"
+      },
+      {
+        "label": "Nighty Bordered",
+        "uiTheme": "vs-dark",
+        "path": "themes/nighty-bordered.json"
       }
     ]
   },
-  "type": "module",
-  "scripts": {
-    "lint": "eslint . --ext .ts --fix",
-    "build": "tsx src/build.ts",
-    "dev": "tsx --watch src/build.ts",
-    "prepare": "npm run lint && npm run build",
-    "package": "vsce package",
-    "publish": "vsce publish"
-  },
-  "devDependencies": {
-    "@types/chroma-js": "^2.4.4",
-    "@types/node": "^20.12.11",
-    "@typescript-eslint/eslint-plugin": "^6.4.0",
-    "@typescript-eslint/parser": "^6.0.0",
-    "@vscode/vsce": "^2.26.1",
-    "chroma-js": "^2.4.2",
-    "eslint": "^8.57.0",
-    "eslint-config-standard": "^17.1.0",
-    "eslint-config-standard-with-typescript": "^43.0.1",
-    "eslint-plugin-import": "^2.29.1",
-    "eslint-plugin-n": "^16.6.2",
-    "eslint-plugin-promise": "^6.1.1",
-    "tsx": "^4.11.0",
-    "typescript": "^5.4.3",
-    "vs-theme-builder": "^2.1.1"
+  "description": "Mix of the best VSCode themes",
+  "displayName": "Nachop theme",
+  "engines": {
+    "vscode": "^1.82.0"
   },
   "eslintConfig": {
     "parserOptions": {
       "project": "./tsconfig.json"
     }
-  }
+  },
+  "homepage": "https://github.com/nachop51/nachop-theme",
+  "icon": "images/icon.png",
+  "keywords": [
+    "theme",
+    "dark",
+    "light",
+    "color",
+    "syntax",
+    "highlighting",
+    "nachop"
+  ],
+  "license": "MIT",
+  "publisher": "nachop51",
+  "scripts": {
+    "lint": "eslint . --ext .ts --fix",
+    "build": "bun src/build.ts",
+    "dev": "bun --watch src/build.ts",
+    "prepare": "bun lint && bun run build",
+    "package": "vsce package",
+    "publish": "vsce publish"
+  },
+  "type": "module",
+  "trustedDependencies": [
+    "@vscode/vsce-sign"
+  ]
 }

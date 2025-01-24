@@ -1,5 +1,9 @@
 import { type ColorScheme } from 'vs-theme-builder'
 
+// #23262e, #242936, #292d3e, #282a3a, #282c34, #1a1b26
+// #1b1e2b, #1e1f2b, #232136, #25293a, #21252b, #16161e
+// #d29ffc, #ffcb6b, #c792ea, #bb9af7
+
 const colors: ColorScheme = {
   editor: {
     bg: '#242936',

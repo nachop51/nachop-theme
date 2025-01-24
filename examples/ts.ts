@@ -77,6 +77,7 @@ let userName = user?.name ?? "Guest";
 console.log(`User name is: ${userName}`);
 
 // Update user to demonstrate optional chaining with existing object
+// asdasdop
 user = {
   name: "Bob",
   age: 25,
@@ -99,6 +100,17 @@ class Greeter {
     return `${this.greetingPrefix} ${this.greeting}! Good ${timeOfDay}.`;
   }
 }
+
+const myFn = <T = object>(arg: T) => {
+  console.log("Arg", arg);
+};
+
+const a = 123;
+
+this.myFn = myFn;
+
+myFn(1);
+
 // Demonstrate class with default parameter
 let detailedGreeter = new Greeter("Alice");
 console.log(detailedGreeter.greetWithTime());
