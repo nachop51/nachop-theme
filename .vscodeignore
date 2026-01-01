@@ -5,11 +5,11 @@ node_modules/
 .gitattributes
 vsc-extension-quickstart.md
 src/
-.eslintignore
+biome.json
 images/
 examples/
 tsconfig.json
 package-lock.json
-bun.lockb
+bun.lock
 
 !images/icon.png

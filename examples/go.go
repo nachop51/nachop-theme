@@ -3,6 +3,7 @@ package main
 import (
 	"errors"
 	"fmt"
+	"strings"
 	"sync"
 	"time"
 )
@@ -20,7 +21,15 @@ type Person struct {
 
 // Method for Person struct
 func (p Person) Greet() string {
+	var s = strings.Clone("test")
+
+	println(s)
+
 	return fmt.Sprintf("Hello, my name is %s and I am %d years old.", p.Name, p.Age)
+}
+
+func (p Person) IsAdult() bool {
+	return p.Age >= 18
 }
 
 // Generic function

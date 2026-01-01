@@ -81,3 +81,14 @@ const AppWithProvider: React.FC = () => (
 );
 
 export default AppWithProvider;
+
+
+class MyClass {
+    constructor() {
+        console.log('MyClass instance created');
+    }
+
+    myMethod(): void {
+        console.log('This is a method in MyClass');
+    }
+}

@@ -1,6 +1,10 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+#define BUFF_SIZE 1024
+
+char buffer[BUFF_SIZE] = {0};
+
 // Enum definition
 typedef enum
 {

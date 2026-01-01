@@ -1,17 +1,17 @@
-import { type ColorScheme } from 'vs-theme-builder'
+import type { ColorScheme } from 'vs-theme-builder'
 
 const colors: ColorScheme = {
   editor: {
     bg: '#F8F4FA',
     fg: '#5c6166',
     cursor: '#FF00E4',
-    lineNumber: '#495162'
+    lineNumber: '#495162',
   },
   ui: {
     bg: '#F5F3F5',
     fg: '#8a9199',
     border: '#ECDEFF',
-    shadow: '#BB99FF40'
+    shadow: '#BB99FF40',
   },
 
   primary: '#aeaaff',
@@ -24,7 +24,7 @@ const colors: ColorScheme = {
     string: '#46C42D',
     func: {
       name: '#42A0ED',
-      param: '#DD9FFC'
+      param: '#DD9FFC',
     },
 
     const: '#F0B838',
@@ -33,10 +33,8 @@ const colors: ColorScheme = {
     comment: '#546E7A',
     class: '#FFA861',
     numeric: '#BB99FF',
-    regexp: '#58DBAF'
-
-  }
-
+    regexp: '#58DBAF',
+  },
 }
 
 export default colors

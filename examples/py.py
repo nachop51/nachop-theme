@@ -1,5 +1,6 @@
 import random
 from random import randint
+from typing import Any, Callable
 
 print("Hello, World!")
 print(f"Random number: {randint(1, 100)}")
@@ -7,7 +8,7 @@ print(f"Random number: {random.randint(1, 100)}")
 
 
 # Function definition
-def greet(name) -> str:
+def greet(name: str) -> str:
     return f"Hello, {name}!"
 
 
@@ -30,10 +31,10 @@ except ValueError as e:
 
 # Class definition
 class Animal:
-    def __init__(self, name):
+    def __init__(self, name: str):
         self.name = name
 
-    def speak(self):
+    def speak(self) -> str:
         raise NotImplementedError("Subclass must implement abstract method")
 
 
@@ -44,8 +45,8 @@ class Dog(Animal):
 
 
 # Decorator function
-def debug(func):
-    def wrapper(*args, **kwargs):
+def debug(func: Callable[..., Any]) -> Callable[..., Any]:
+    def wrapper(*args: tuple[Any, ...], **kwargs: dict[str, Any]) -> Any:
         result = func(*args, **kwargs)
         print(f"{func.__name__}({args}, {kwargs}) = {result}")
         return result
@@ -55,11 +56,9 @@ def debug(func):
 
 # Apply decorator
 @debug
-def add(a, b):
+def add(a: int, b: int) -> int:
     return a + b
 
-
-[{({([])})}]
 
 # Demonstrate class and decorator
 dog = Dog("Buddy")
